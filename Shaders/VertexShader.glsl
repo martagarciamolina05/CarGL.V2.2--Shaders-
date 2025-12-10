@@ -73,6 +73,6 @@ void main()
 	
 	gl_Position = u_ProjectionMatrix * vec4(P, 1.0);
 
-        //v_UV = a_UV;
+        v_UV = a_UV;
         //gl_Position = u_ProjectionMatrix * vec4(a_Position.xyz, 1.0);
 }
