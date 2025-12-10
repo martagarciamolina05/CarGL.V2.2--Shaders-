@@ -1,7 +1,7 @@
 
 attribute vec4 a_Position;	        // in: Posición de cada vértice
 attribute vec3 a_Normal;	        // in: Normal de cada vértice
-//attribute vec2 a_UV;	            // in: Coordenadas de textura
+attribute vec2 a_UV;	            // in: Coordenadas de textura
 
 uniform mat4 u_ProjectionMatrix; 	// in: Matriz Projection
 uniform mat4 u_MVMatrix;	        // in: Matriz ModelView
@@ -12,7 +12,7 @@ uniform int  u_Luz1;                // in: Indica si la luz 1 está encedida
 uniform int  u_Luz2;                // in: Indica si la luz 2 está encedida
 
 varying vec4 v_Color;		        // out: Color al fragment shader
-//varying vec2 v_UV;                  // out: Coordenadas UV al fragment shader
+varying vec2 v_UV;                  // out: Coordenadas UV al fragment shader
 
 uniform vec4 u_Light0Pos;
 uniform vec4 u_DiffuseI0;
