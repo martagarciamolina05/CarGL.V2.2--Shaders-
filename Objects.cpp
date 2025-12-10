@@ -63,6 +63,15 @@ TPrimitiva::TPrimitiva(int DL, int t)
 
     sx = sy = sz = 1;
     rx = ry = rz = 0;
+
+    // Crear textura blanca por defecto (1x1 pixel blanco)
+    unsigned char whitePixel[] = {255, 255, 255};
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 1, 1, 0, GL_RGB, GL_UNSIGNED_BYTE, whitePixel);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
 	switch (tipo) {
 		case CARRETERA_ID: {  // Creaci�n de la carretera
 		    tx = tz = 0;
@@ -179,15 +188,22 @@ TPrimitiva::TPrimitiva(int DL, int t)
             int width, height;
             unsigned char *pixels = LoadJPEG("../../Modelos/texturas/textura_banco.jpeg", &width, &height);
 
-            GLuint textureID;
-            glGenTextures(1, &textureID);
-            glBindTexture(GL_TEXTURE_2D, textureID);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glGenerateMipmap(GL_TEXTURE_2D);
-
-            free (pixels); // Liberar la memoria de los píxeles cargados
+            if (pixels != NULL) {
+                printf("Textura banco cargada: %dx%d\n", width, height);
+                glGenTextures(1, &textureID);
+                glBindTexture(GL_TEXTURE_2D, textureID);
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+                // Configurar wrapping para que se repita correctamente
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+                glGenerateMipmap(GL_TEXTURE_2D);
+                free (pixels);
+            } else {
+                printf("ERROR: No se pudo cargar textura_banco.jpeg\n");
+                // Mantiene la textura blanca por defecto creada en el constructor
+            }
             modelo1 = NULL;
             break;
 		}
@@ -245,6 +261,11 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
     glm::mat4   modelViewMatrix;
 
     glStencilFunc(GL_ALWAYS, this->ID, 0xFF);
+
+    // Activar la textura del objeto (por defecto es blanca, o la textura cargada)
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glUniform1i(escena.uTextureLocation, 0);
 
     switch (tipo) {
 
@@ -430,10 +451,10 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0+3);
-                
-                // Asociar el buffer de coordenadas UV 
-                //glVertexAttribPointer(escena.aUVLocation, 2, GL_FLOAT, GL_FALSE, STRIDE, modelo0 + 6);
-                //glEnableVertexAttribArray(escena.aUVLocation);
+
+                // Asociar el buffer de coordenadas UV
+                glVertexAttribPointer(escena.aUVLocation, 2, GL_FLOAT, GL_FALSE, STRIDE, modelo0 + 6);
+                glEnableVertexAttribArray(escena.aUVLocation);
 
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices0);
             }
@@ -715,7 +736,7 @@ void __fastcall TEscena::InitGL()
 
     aPositionLocation=shaderProgram->attrib(A_POSITION);
     aNormalLocation=shaderProgram->attrib(A_NORMAL);
-    //aUVLocation=shaderProgram->attrib(A_UV);
+    aUVLocation=shaderProgram->attrib(A_UV);
 
     uProjectionMatrixLocation=shaderProgram->uniform(U_PROJECTIONMATRIX);
     uMVMatrixLocation=shaderProgram->uniform(U_MVMATRIX);
@@ -736,6 +757,9 @@ void __fastcall TEscena::InitGL()
     uLuz2PosLocation = shaderProgram->uniform(U_LUZ2POS);
     uDifusseI2Location = shaderProgram->uniform(U_DIFFUSEI2);
 
+    // Obtener la ubicación del uniform de textura
+    uTextureLocation = shaderProgram->uniform(U_TEXTURE);
+
     /*
     std::cout << "a_Position Location: " << aPositionLocation << std::endl;
     std::cout << "a_Normal Location: " << aNormalLocation << std::endl;
@@ -750,7 +774,7 @@ void __fastcall TEscena::InitGL()
     // Habilitamos el paso de attributes
     glEnableVertexAttribArray(aPositionLocation);
     glEnableVertexAttribArray(aNormalLocation);
-    //glEnableVertexAttribArray(aUVLocation);
+    glEnableVertexAttribArray(aUVLocation);
 
     // Estableciendo la matriz de proyecci�n perspectiva
     GLUI_Master.get_viewport_area( &tx, &ty, &tw, &th );
@@ -951,12 +975,6 @@ void __fastcall TEscena::CrearEscenario()
     TPrimitiva *banco4 = new TPrimitiva(BANCO_ID, BANCO_ID);
     TPrimitiva *banco5 = new TPrimitiva(BANCO_ID, BANCO_ID);
     TPrimitiva *banco6 = new TPrimitiva(BANCO_ID, BANCO_ID);
-    TPrimitiva *banco7 = new TPrimitiva(BANCO_ID, BANCO_ID);
-    TPrimitiva *banco8 = new TPrimitiva(BANCO_ID, BANCO_ID);
-    TPrimitiva *banco9 = new TPrimitiva(BANCO_ID, BANCO_ID);
-    TPrimitiva *banco10 = new TPrimitiva(BANCO_ID, BANCO_ID);
-    TPrimitiva *banco11 = new TPrimitiva(BANCO_ID, BANCO_ID);
-    TPrimitiva *banco12 = new TPrimitiva(BANCO_ID, BANCO_ID);
 
     TPrimitiva *basura = new TPrimitiva(BASURA_ID, BASURA_ID);
     TPrimitiva *basura2 = new TPrimitiva(BASURA_ID, BASURA_ID);
@@ -1087,61 +1105,34 @@ void __fastcall TEscena::CrearEscenario()
     banco5->colores[0][1] = 0.4;
     banco5->colores[0][2] = 0.1;
 
+
+
     banco6->colores[0][0] = 0.7;
     banco6->colores[0][1] = 0.4;
     banco6->colores[0][2] = 0.1;
 
-    banco7->colores[0][0] = 0.7;
-    banco7->colores[0][1] = 0.4;
-    banco7->colores[0][2] = 0.1;
 
-    banco8->colores[0][0] = 0.7;
-    banco8->colores[0][1] = 0.4;
-    banco8->colores[0][2] = 0.1;
-
-    banco9->colores[0][0] = 0.7;
-    banco9->colores[0][1] = 0.4;
-    banco9->colores[0][2] = 0.1;
-
-    banco10->colores[0][0] = 0.7;
-    banco10->colores[0][1] = 0.4;
-    banco10->colores[0][2] = 0.1;
-
-    banco11->colores[0][0] = 0.7;
-    banco11->colores[0][1] = 0.4;
-    banco11->colores[0][2] = 0.1;
-
-    banco12->colores[0][0] = 0.7;
-    banco12->colores[0][1] = 0.4;
-    banco12->colores[0][2] = 0.1;
-
+    banco-> tx = -10;
     banco2->ty=90;
-    banco3->ty=400;
-    banco4->ty=275;
+    banco2->tx = - 10;
 
-    banco11->ty=400;
-    banco11->tx=180;
-    banco12->tx=180;
-    banco12->ty=275;
+    banco3-> tx= 0;
+    banco3-> ty= 300;
+    banco3-> rz= 180;
 
-    banco6->ty=-5;
-    banco6->tx=-50;
-    banco6->rz=180;
+    banco4-> tx= 0;
+    banco4-> ty= 200;
+    banco4-> rz= 180;
 
-    banco7->tx=-100;
-    banco7->ty=400;
 
-    banco8->ty=-100;
-    banco8->tx=-50;
-    banco8->rz=180;
 
-    banco9->tx=-100;
-    banco9->ty=305;
-
+    banco6->rz=90;
+    banco6->tx = -100;
+    banco6-> ty = -30;
 
     banco5->rz=90;
-    banco10->rz=90;
-    banco10->tx=-100;
+    banco5->tx = -20;
+    banco5-> ty = -30;
 
     farola2->ty=150;
     farola3->ty=400;
@@ -1193,12 +1184,7 @@ void __fastcall TEscena::CrearEscenario()
     AddObject(banco4);
     AddObject(banco5);
     AddObject(banco6);
-    AddObject(banco7);
-    AddObject(banco8);
-    AddObject(banco9);
-    AddObject(banco10);
-    AddObject(banco11);
-    AddObject(banco12);
+
 
     AddObject(farola);
     AddObject(farola2);

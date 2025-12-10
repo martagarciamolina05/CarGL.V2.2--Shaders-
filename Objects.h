@@ -93,6 +93,8 @@
 #define U_LUZ2POS               "u_Light2Pos"
 #define U_DIFFUSEI2              "u_DiffuseI2"
 
+#define U_TEXTURE               "u_Texture"
+
 //************************************************************** Clase TPrimtiva
 
 class TPrimitiva
@@ -119,6 +121,8 @@ public: // Atributos de la clase
 
 		float   *modelo4;        // modelo a representar
 		int     num_vertices4;
+
+		GLuint  textureID;       // ID de la textura OpenGL
 
 		float gc,gr,d;
 
@@ -163,6 +167,8 @@ public: // Atributos de la clase
 		int uLuz2Location;
         int uLuz2PosLocation;
         int uDifusseI2Location;
+
+		int uTextureLocation;    // Uniform para la textura
 
 		glm::mat4 projectionMatrix; // Almacena la matriz de proyecci�n
         glm::mat4 viewMatrix;

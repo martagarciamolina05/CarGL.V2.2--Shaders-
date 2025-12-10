@@ -8,6 +8,8 @@ varying vec2 v_UV;
 
 void main()
 {
-    gl_FragColor = v_Color;
-	//gl_FragColor = texture2D(u_Texture, v_UV); 
+	// Descomentar la siguiente línea para ver las coordenadas UV como colores (debug)
+	// gl_FragColor = vec4(v_UV, 0.0, 1.0);
+	
+	gl_FragColor = texture2D(u_Texture, v_UV) * v_Color;
 }
