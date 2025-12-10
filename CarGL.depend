@@ -1,0 +1,1829 @@
+# depslib dependency file v1.0
+1351893396 source:g:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\main.cpp
+	<windows.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdlib.h>
+	"load3ds.c"
+
+976659772 g:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\glut\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1023918422 g:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1352024675 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\main.cpp
+	<string.h>
+	<GL/glui.h>
+
+976659772 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\glut\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1352020667 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1352020431 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\load3ds.h
+
+1023918422 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\cargl\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1352062927 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl2\cargl\main.cpp
+	<string.h>
+	<GL/glui.h>
+	"Objects.h"
+
+1352064014 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl2\cargl\objects.h
+	<GL/glui.h>
+
+1352063867 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl2\cargl\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352020667 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl2\cargl\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1381770338 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1352071180 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl\objects.h
+	<GL/glui.h>
+
+1381773559 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352024267 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1381773938 source:d:\cargl\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1352071180 d:\cargl\objects.h
+	<GL/glui.h>
+
+1352120982 source:d:\cargl\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352024267 d:\cargl\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1445459598 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1445461835 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1445460634 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352024267 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1445339540 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\program.cpp
+	"Program.h"
+
+1445366915 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\shader.cpp
+	"Shader.h"
+
+1445240554 source:f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1445256447 f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+
+1431215812 f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431215812 f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1445257565 source:f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352024267 f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1445190919 source:f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\program.cpp
+	"Program.h"
+
+1445190932 source:f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v4\shader.cpp
+	"Shader.h"
+
+1445458834 source:f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1445502590 f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1431215812 f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431215812 f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1445335940 source:f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\program.cpp
+	"Program.h"
+
+1445363315 source:f:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\shader.cpp
+	"Shader.h"
+
+1473418358 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1473420932 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1445339540 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\program.cpp
+	"Program.h"
+
+1445366915 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\shader.cpp
+	"Shader.h"
+
+1473420963 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352024267 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1445529465 source:l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1445502590 l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1431215812 l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431215812 l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1352020667 l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1445335940 source:l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\program.cpp
+	"Program.h"
+
+1445363315 source:l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\shader.cpp
+	"Shader.h"
+
+1445945194 source:l:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2 (shaders)\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1608554024 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1603805857 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1352024267 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1445339540 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\program.cpp
+	"Program.h"
+
+1445366915 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\shader.cpp
+	"Shader.h"
+
+1607810602 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.1 (shaders)\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1512032615 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1473420932 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1439240090 c:\program files (x86)\codeblocks\mingw\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\stddef.h
+	<crtdefs.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\crtdefs.h
+	<_mingw.h>
+
+1341010370 c:\program files (x86)\codeblocks\mingw\include\_mingw.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\_mingw_mac.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\_mingw_secapi.h
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\_cygwin.h
+	<stddef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\vadefs.h
+	<_mingw.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\sdks\_mingw_directx.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\sdks\_mingw_ddk.h
+
+1341010372 c:\program files (x86)\codeblocks\mingw\include\inttypes.h
+	<_mingw.h>
+	<stdint.h>
+	<stddef.h>
+
+1341010376 c:\program files (x86)\codeblocks\mingw\include\stdint.h
+	<stddef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\_mingw_print_push.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\_mingw_print_pop.h
+
+1301114764 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
+	<stddef.h>
+	<GL/gl.h>
+
+1301114764 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\windows.h
+	<_mingw.h>
+	<sdkddkver.h>
+	<winresrc.h>
+	<excpt.h>
+	<stdarg.h>
+	<windef.h>
+	<winbase.h>
+	<wingdi.h>
+	<winuser.h>
+	<winnls.h>
+	<wincon.h>
+	<winver.h>
+	<winreg.h>
+	<winnetwk.h>
+	<virtdisk.h>
+	<cderr.h>
+	<dde.h>
+	<ddeml.h>
+	<dlgs.h>
+	<lzexpand.h>
+	<mmsystem.h>
+	<nb30.h>
+	<rpc.h>
+	<shellapi.h>
+	<winperf.h>
+	<winsock.h>
+	<wincrypt.h>
+	<winefs.h>
+	<winscard.h>
+	<winspool.h>
+	<ole.h>
+	<ole2.h>
+	<commdlg.h>
+	<stralign.h>
+	<ole2.h>
+	<winsvc.h>
+	<mcx.h>
+	<imm.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\sdkddkver.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winresrc.h
+	<winuser.rh>
+	<commctrl.rh>
+	<dde.rh>
+	<winnt.rh>
+	<dlgs.h>
+	<winver.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winuser.rh
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\commctrl.rh
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\dde.rh
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winnt.rh
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\dlgs.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winver.h
+	<_mingw.h>
+	<_mingw_unicode.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\_mingw_unicode.h
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\excpt.h
+	<crtdefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\stdarg.h
+	<_mingw_stdarg.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\_mingw_stdarg.h
+	<vadefs.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\windef.h
+	<minwindef.h>
+	<winnt.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\minwindef.h
+	<_mingw.h>
+	<winapifamily.h>
+	<specstrings.h>
+	<winnt.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winapifamily.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\specstrings.h
+	<sal.h>
+	<driverspecs.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\sal.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\driverspecs.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winnt.h
+	<_mingw_unicode.h>
+	<_mingw.h>
+	<ctype.h>
+	<excpt.h>
+	<winapifamily.h>
+	<apiset.h>
+	<specstrings.h>
+	<psdk_inc/intrin-impl.h>
+	<sdkddkver.h>
+	<basetsd.h>
+	<guiddef.h>
+	<x86intrin.h>
+	<emmintrin.h>
+	<emmintrin.h>
+	<pshpack4.h>
+	<poppack.h>
+	"pshpack4.h"
+	"pshpack2.h"
+	"poppack.h"
+	"pshpack2.h"
+	<pshpack2.h>
+	<poppack.h>
+	"poppack.h"
+	"pshpack8.h"
+	"poppack.h"
+	"poppack.h"
+	<string.h>
+	<pshpack8.h>
+	<poppack.h>
+	<ktmtypes.h>
+	"pshpack4.h"
+	"poppack.h"
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\ctype.h
+	<crtdefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\apiset.h
+	<_mingw.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\intrin-impl.h
+	<intrin.h>
+	<psdk_inc/intrin-impl.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\intrin.h
+	<crtdefs.h>
+	<setjmp.h>
+	<stddef.h>
+	<psdk_inc/intrin-impl.h>
+	<stdlib.h>
+	<errno.h>
+	<malloc.h>
+	<x86intrin.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	<mm3dnow.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\setjmp.h
+	<crtdefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\stdlib.h
+	<crtdefs.h>
+	<limits.h>
+	<sec_api/stdlib_s.h>
+	<malloc.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\limits.h
+	<crtdefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\sec_api\stdlib_s.h
+	<stdlib.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\malloc.h
+	<crtdefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\errno.h
+	<crtdefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\basetsd.h
+	<_mingw.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\guiddef.h
+	<_mingw.h>
+	<string.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\string.h
+	<crtdefs.h>
+	<sec_api/string_s.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\sec_api\string_s.h
+	<string.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\pshpack4.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\poppack.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\pshpack2.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\pshpack8.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\ktmtypes.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winbase.h
+	<_mingw_unicode.h>
+	<apisetcconv.h>
+	<winapifamily.h>
+	<minwinbase.h>
+	<bemapiset.h>
+	<debugapi.h>
+	<errhandlingapi.h>
+	<fibersapi.h>
+	<fileapi.h>
+	<handleapi.h>
+	<heapapi.h>
+	<ioapiset.h>
+	<interlockedapi.h>
+	<jobapi.h>
+	<libloaderapi.h>
+	<memoryapi.h>
+	<namedpipeapi.h>
+	<namespaceapi.h>
+	<processenv.h>
+	<processthreadsapi.h>
+	<processtopologyapi.h>
+	<profileapi.h>
+	<realtimeapiset.h>
+	<securityappcontainer.h>
+	<securitybaseapi.h>
+	<synchapi.h>
+	<sysinfoapi.h>
+	<systemtopologyapi.h>
+	<threadpoolapiset.h>
+	<threadpoollegacyapiset.h>
+	<utilapiset.h>
+	<wow64apiset.h>
+	<psdk_inc/intrin-impl.h>
+	<winerror.h>
+	<timezoneapi.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\apisetcconv.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\minwinbase.h
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\bemapiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\debugapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\errhandlingapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\fibersapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\fileapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\handleapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\heapapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\ioapiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\interlockedapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\jobapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\libloaderapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\memoryapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\namedpipeapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\namespaceapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\processenv.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\processthreadsapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\processtopologyapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\profileapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\realtimeapiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\securityappcontainer.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\securitybaseapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\synchapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\sysinfoapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\systemtopologyapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\threadpoolapiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\threadpoollegacyapiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\utilapiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\wow64apiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winerror.h
+	<fltwinerror.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\fltwinerror.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\timezoneapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\wingdi.h
+	<winapifamily.h>
+	<_mingw_unicode.h>
+	<pshpack1.h>
+	<poppack.h>
+	<pshpack2.h>
+	<poppack.h>
+	<pshpack2.h>
+	<poppack.h>
+	<pshpack4.h>
+	<poppack.h>
+	<pshpack4.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\pshpack1.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winuser.h
+	<winapifamily.h>
+	<_mingw_unicode.h>
+	<apisetcconv.h>
+	<_mingw.h>
+	<stdarg.h>
+	<guiddef.h>
+	<libloaderapi.h>
+	<pshpack2.h>
+	<poppack.h>
+	<tvout.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\tvout.h
+	<guiddef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winnls.h
+	<winapifamily.h>
+	<datetimeapi.h>
+	<libloaderapi.h>
+	<stringapiset.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\datetimeapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<minwinbase.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\stringapiset.h
+	<apiset.h>
+	<apisetcconv.h>
+	<minwindef.h>
+	<winnls.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\wincon.h
+	<_mingw_unicode.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winreg.h
+	<_mingw_unicode.h>
+	<reason.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\reason.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winnetwk.h
+	<winapifamily.h>
+	<_mingw_unicode.h>
+	<wnnc.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\wnnc.h
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\virtdisk.h
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\cderr.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\dde.h
+	<windef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\ddeml.h
+	<_mingw_unicode.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\lzexpand.h
+	<_mingw_unicode.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\mmsystem.h
+	<_mingw_unicode.h>
+	<pshpack1.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\nb30.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\rpc.h
+	<_mingw.h>
+	<windows.h>
+	<basetsd.h>
+	<pshpack8.h>
+	<rpcdce.h>
+	<rpcnsi.h>
+	<rpcnterr.h>
+	<excpt.h>
+	<winerror.h>
+	<rpcasync.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\rpcdce.h
+	<_mingw_unicode.h>
+	<specstrings.h>
+	<guiddef.h>
+	<rpcdcep.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\rpcdcep.h
+	<_mingw_unicode.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\rpcnsi.h
+	<_mingw_unicode.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\rpcnterr.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\rpcasync.h
+	<_mingw_unicode.h>
+	<pshpack8.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\shellapi.h
+	<winapifamily.h>
+	<_mingw_unicode.h>
+	<specstrings.h>
+	<pshpack1.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winperf.h
+	<pshpack8.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winsock.h
+	<windows.h>
+	<_timeval.h>
+	<_bsd_types.h>
+	<inaddr.h>
+	<psdk_inc/_socket_types.h>
+	<psdk_inc/_fd_types.h>
+	<psdk_inc/_ip_types.h>
+	<psdk_inc/_ip_mreq1.h>
+	<psdk_inc/_wsadata.h>
+	<psdk_inc/_xmitfile.h>
+	<psdk_inc/_wsa_errnos.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\_timeval.h
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\_bsd_types.h
+	<_mingw.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\inaddr.h
+	<_bsd_types.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\_socket_types.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\_fd_types.h
+	<psdk_inc/_socket_types.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\_ip_types.h
+	<_bsd_types.h>
+	<inaddr.h>
+	<_timeval.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\_ip_mreq1.h
+	<inaddr.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\_wsadata.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\_xmitfile.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\psdk_inc\_wsa_errnos.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\wincrypt.h
+	<_mingw.h>
+	<_mingw_unicode.h>
+	<guiddef.h>
+	<winapifamily.h>
+	<apisetcconv.h>
+	<bcrypt.h>
+	<ncrypt.h>
+	<dpapi.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\bcrypt.h
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\ncrypt.h
+	<winapifamily.h>
+	<bcrypt.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\dpapi.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winefs.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winscard.h
+	<_mingw_unicode.h>
+	<wtypes.h>
+	<winioctl.h>
+	"winsmcrd.h"
+	"SCardErr.h"
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\wtypes.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<wtypesbase.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\rpcndr.h
+	<pshpack8.h>
+	<basetsd.h>
+	<rpcnsip.h>
+	<rpcsal.h>
+	<poppack.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\rpcnsip.h
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\rpcsal.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\ole2.h
+	<winapifamily.h>
+	<pshpack8.h>
+	<winerror.h>
+	<objbase.h>
+	<oleauto.h>
+	<oleidl.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\objbase.h
+	<winapifamily.h>
+	<rpc.h>
+	<rpcndr.h>
+	<pshpack8.h>
+	<combaseapi.h>
+	<objidl.h>
+	<urlmon.h>
+	<propidl.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\combaseapi.h
+	<apiset.h>
+	<apisetcconv.h>
+	<rpc.h>
+	<rpcndr.h>
+	<pshpack8.h>
+	<stdlib.h>
+	<wtypesbase.h>
+	<unknwnbase.h>
+	<objidlbase.h>
+	<guiddef.h>
+	<cguid.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\wtypesbase.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<basetsd.h>
+	<guiddef.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\unknwnbase.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<wtypesbase.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\objidlbase.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<unknwnbase.h>
+	<wtypesbase.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\cguid.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\objidl.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<unknwn.h>
+	<wtypes.h>
+	<winapifamily.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\unknwn.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<wtypes.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\urlmon.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<objidl.h>
+	<oleidl.h>
+	<servprov.h>
+	<msxml.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\oleidl.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<objidl.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\servprov.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<objidl.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\msxml.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<unknwn.h>
+	<objidl.h>
+	<oaidl.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\oaidl.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<objidl.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\propidl.h
+	<rpc.h>
+	<rpcndr.h>
+	<windows.h>
+	<ole2.h>
+	<wtypes.h>
+	<objidl.h>
+	<oaidl.h>
+	<winapifamily.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\oleauto.h
+	<pshpack8.h>
+	<oaidl.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winioctl.h
+	<pshpack1.h>
+	<poppack.h>
+	<pshpack1.h>
+	<poppack.h>
+	<pshpack1.h>
+	<poppack.h>
+	<pshpack1.h>
+	<poppack.h>
+	<pshpack1.h>
+	<poppack.h>
+	<pshpack1.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winsmcrd.h
+	<_mingw_unicode.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\scarderr.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winspool.h
+	<_mingw_unicode.h>
+	<prsht.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\prsht.h
+	<_mingw_unicode.h>
+	<pshpack8.h>
+	<pshpack4.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\ole.h
+	<winapifamily.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\commdlg.h
+	<winapifamily.h>
+	<_mingw_unicode.h>
+	<prsht.h>
+	<pshpack1.h>
+	<poppack.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\stralign.h
+	<sec_api/stralign_s.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\sec_api\stralign_s.h
+	<stralign.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\winsvc.h
+	<_mingw.h>
+	<_mingw_unicode.h>
+	<apisetcconv.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\mcx.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\imm.h
+	<_mingw_unicode.h>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1351944759 c:\program files (x86)\codeblocks\mingw\include\gl\glui.h
+	<windows.h>
+	<cstdlib>
+	<GL/freeglut.h>
+	<GL/openglut.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<cstdio>
+	<cstring>
+	<string>
+	<vector>
+
+976663372 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\glm.hpp
+	"detail/_fixes.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_fixes.hpp
+	<cmath>
+
+1438468536 c:\program files (x86)\codeblocks\mingw\include\glm\fwd.hpp
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1441573534 c:\program files (x86)\codeblocks\mingw\include\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<smmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+	<__config>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1438468703 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec.hpp
+	"precision.hpp"
+	"type_int.hpp"
+
+1441042160 c:\program files (x86)\codeblocks\mingw\include\glm\detail\precision.hpp
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat.hpp
+	"precision.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\vec2.hpp
+	"detail/type_vec2.hpp"
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_swizzle.hpp
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_swizzle_func.hpp
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\vec3.hpp
+	"detail/type_vec3.hpp"
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\vec4.hpp
+	"detail/type_vec4.hpp"
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4.hpp
+	"setup.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4.inl
+	"type_vec4_sse2.inl"
+	"type_vec4_avx.inl"
+	"type_vec4_avx2.inl"
+
+1441042492 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4_sse2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4_avx.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec4_avx2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x2.hpp
+	"detail/type_mat2x2.hpp"
+
+1440867826 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1438474408 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x3.hpp
+	"detail/type_mat2x3.hpp"
+
+1438472069 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1438474337 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat2x4.hpp
+	"detail/type_mat2x4.hpp"
+
+1438472025 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1438474173 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat2x4.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x2.hpp
+	"detail/type_mat3x2.hpp"
+
+1438471885 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1438474018 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x3.hpp
+	"detail/type_mat3x3.hpp"
+
+1438471827 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1438473902 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat3x4.hpp
+	"detail/type_mat3x4.hpp"
+
+1438471695 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1438473791 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat3x4.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x2.hpp
+	"detail/type_mat4x2.hpp"
+
+1438471617 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1438473617 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x2.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x3.hpp
+	"detail/type_mat4x3.hpp"
+
+1438471558 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1438474132 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x3.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\mat4x4.hpp
+	"detail/type_mat4x4.hpp"
+
+1438471499 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1438473595 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_mat4x4.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\trigonometric.hpp
+	"detail/func_trigonometric.hpp"
+
+1441055437 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_trigonometric.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_trigonometric.inl"
+
+1441056046 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec1.hpp
+	"../fwd.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1441571789 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_vec1.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\exponential.hpp
+	"detail/func_exponential.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_exponential.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<cmath>
+	"func_exponential.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_exponential.inl
+	"func_vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_vector_relational.hpp
+	"precision.hpp"
+	"setup.hpp"
+	"func_vector_relational.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_vector_relational.inl
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\common.hpp
+	"detail/func_common.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_common.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"type_int.hpp"
+	"_fixes.hpp"
+	"func_common.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_common.inl
+	"func_vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\packing.hpp
+	"detail/func_packing.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_packing.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"func_packing.inl"
+
+1437265717 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_packing.inl
+	"func_common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\type_half.inl
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\geometric.hpp
+	"detail/func_geometric.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_geometric.hpp
+	"type_vec3.hpp"
+	"func_geometric.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_geometric.inl
+	"func_exponential.hpp"
+	"func_common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\matrix.hpp
+	"detail/func_matrix.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_matrix.hpp
+	"../detail/precision.hpp"
+	"../detail/setup.hpp"
+	"../detail/type_mat.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"func_matrix.inl"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\vector_relational.hpp
+	"detail/func_vector_relational.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\integer.hpp
+	"detail/func_integer.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_integer.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_common.hpp"
+	"func_vector_relational.hpp"
+	"func_integer.inl"
+
+1426538703 c:\program files (x86)\codeblocks\mingw\include\glm\detail\func_integer.inl
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+
+1441041856 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1441055054 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1441056294 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\constants.inl
+	<limits>
+
+1426538469 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1438474686 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\quaternion.hpp
+	"../mat3x3.hpp"
+	"../mat4x4.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"quaternion.inl"
+
+1438475600 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	<limits>
+
+1424017883 c:\program files (x86)\codeblocks\mingw\include\glm\gtc\type_ptr.inl
+	<cstring>
+
+1537785943 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352024267 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1526097016 c:\program files (x86)\codeblocks\mingw\include\math.h
+	<crtdefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\stdio.h
+	<crtdefs.h>
+	<_mingw_print_push.h>
+	<_mingw_off_t.h>
+	<swprintf.inl>
+	<sec_api/stdio_s.h>
+	<_mingw_print_pop.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\_mingw_off_t.h
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\swprintf.inl
+	<vadefs.h>
+
+1526097014 c:\program files (x86)\codeblocks\mingw\include\sec_api\stdio_s.h
+	<stdio.h>
+
+1445339540 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\program.cpp
+	"Program.h"
+
+1445366915 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders) - cb 20.03\shader.cpp
+	"Shader.h"
+
+1664908518 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1664908534 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1431219412 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1664907816 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1352024267 i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1445339540 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\program.cpp
+	"Program.h"
+
+1445366915 source:i:\users\docencia\gráficos por computador (gc-gim)\prácticas\opengl\cargl.v2.2 (shaders)\shader.cpp
+	"Shader.h"
+
+1762944858 source:c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1763552534 c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1759314137 c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1759314137 c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1763552603 source:c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+
+1759314137 c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1759314137 source:c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\program.cpp
+	"Program.h"
+
+1759314137 source:c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\shader.cpp
+	"Shader.h"
+
+1765308074 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\main.cpp
+	"Objects.h"
+	<GL\glui.h>
+
+1765365721 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\objects.h
+	"Shader.h"
+	"Program.h"
+	<GL/glui.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1759314137 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\shader.h
+	<GL/glew.h>
+	<iostream>
+	<fstream>
+	<stdexcept>
+
+1759314137 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\program.h
+	<stdexcept>
+	<vector>
+	<GL/glew.h>
+
+1759314137 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\program.cpp
+	"Program.h"
+
+1759314137 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\shader.cpp
+	"Shader.h"
+
+1765366889 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\objects.cpp
+	"Objects.h"
+	<GL/glui.h>
+	"load3ds.c"
+	"loadjpeg.h"
+	"loadjpeg.c"
+
+1759314137 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\load3ds.c
+	<math.h>
+	<stdio.h>
+	<malloc.h>
+
+1765364027 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\loadjpeg.h
+
+1759314137 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\loadjpeg.c
+	<stdio.h>
+	<malloc.h>
+
