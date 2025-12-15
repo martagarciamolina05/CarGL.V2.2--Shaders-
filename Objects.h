@@ -64,6 +64,9 @@
 #define SEL_ID               500
 
 #define CAMARA_ID            600
+#define PROYECCION_ID        610
+#define WINDING_ID           620
+#define MODO_VIS_ID          630
 
 // Datos del formato 3DS (x, y, z, A, B, C, u, v)
 #define POSITION_COMPONENT_COUNT    3
@@ -169,6 +172,7 @@ public: // Atributos de la clase
         int uDifusseI2Location;
 
 		int uTextureLocation;    // Uniform para la textura
+		int uAmbientLocation;    // Uniform para luz ambiente
 
 		glm::mat4 projectionMatrix; // Almacena la matriz de proyecci�n
         glm::mat4 viewMatrix;
@@ -204,6 +208,7 @@ public: // Atributos de la clase
         int     wireframe;
         int     z_buffer;
         int     culling;
+        int     winding_order;  // 0=CCW (antihorario), 1=CW (horario)
 
         int     show_car;
         int     show_wheels;
@@ -213,6 +218,7 @@ public: // Atributos de la clase
         GLfloat view_position[3];
         GLfloat view_rotate[16];
         float   scale;
+        float   ambient_intensity;  // Intensidad de luz ambiente
 
 public: // M�todos
 		TEscena();

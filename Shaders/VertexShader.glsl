@@ -21,12 +21,13 @@ uniform vec4 u_DiffuseI1;
 uniform vec4 u_Light2Pos;
 uniform vec4 u_DiffuseI2;
 
+uniform float u_Ambient;  // Intensidad de luz ambiente
+
 void main()
 {
         vec3 P = vec3(u_MVMatrix * a_Position);	            // Posición del vértice
 	vec3 N = vec3(u_MVMatrix * vec4(a_Normal, 0.0));    // Normal del vértice
 
-	float ambient = 0.15;                               // (15% de int. ambiente)
 	vec4 diffuseTerm = vec4(0.0);
 
 	// Luz 0
@@ -68,7 +69,7 @@ void main()
         diffuseTerm += u_DiffuseI2 * NdotL2 * attenuation2;
 	}
 
-	v_Color = (u_Color*ambient) + (u_Color * diffuseTerm);
+	v_Color = (u_Color * u_Ambient) + (u_Color * diffuseTerm);
 	v_Color.a = u_Color.a;
 	
 	gl_Position = u_ProjectionMatrix * vec4(P, 1.0);

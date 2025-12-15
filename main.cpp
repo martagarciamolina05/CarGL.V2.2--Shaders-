@@ -23,7 +23,7 @@ void Keyboard(unsigned char Key, int x, int y)
 static void SpecialKey(int key, int x, int y)
 {
     printf("Tecla especial presionada: %d, Seleccion actual: %d\n", key, escena.seleccion);
-    
+
     TPrimitiva *car = escena.GetCar(escena.seleccion);
     float giro = 4.0f;
     float despl = 1.5f;
@@ -37,7 +37,7 @@ static void SpecialKey(int key, int x, int y)
         printf("ERROR: No hay coche seleccionado (car == NULL)\n");
         return;
     }
-    
+
     printf("Coche ID %d encontrado en posicion (%.2f, %.2f, %.2f)\n", car->ID, car->tx, car->ty, car->tz);
 
     switch (key)
@@ -85,7 +85,12 @@ void Menu(int value)
 }
 
 static bool left_dragging = false;
+static bool right_dragging = false;
+static bool ctrl_pulsado = false;
+static bool shift_pulsado = false;
+
 static int last_x = 0;
+static int last_y = 0;
 static float mouse_sensitivity = 1.0f;
 
 void Mouse(int button, int button_state, int x, int y)
@@ -94,12 +99,34 @@ void Mouse(int button, int button_state, int x, int y)
     {
         if(button_state == GLUT_DOWN)
         {
+            int modifiers = glutGetModifiers();
+            ctrl_pulsado = (modifiers & GLUT_ACTIVE_CTRL) != 0;
+            shift_pulsado = (modifiers & GLUT_ACTIVE_SHIFT) != 0;
             left_dragging = true;
             last_x = x;
+            last_y = y;
         }
         else if(button_state == GLUT_UP)
         {
             left_dragging = false;
+            ctrl_pulsado = false;
+            shift_pulsado = false;
+        }
+    }
+    else if(button == GLUT_RIGHT_BUTTON)
+    {
+        if(button_state == GLUT_DOWN)
+        {
+            int modifiers = glutGetModifiers();
+            ctrl_pulsado = (modifiers & GLUT_ACTIVE_CTRL) != 0;
+            right_dragging = true;
+            last_x = x;
+            last_y = y;
+        }
+        else if(button_state == GLUT_UP)
+        {
+            right_dragging = false;
+            ctrl_pulsado = false;
         }
     }
 
@@ -126,8 +153,77 @@ void Motion(int x, int y)
     if(left_dragging && escena.camara == 0) // Modo cámara libre
     {
         int dx = x - last_x;
-        escena.view_position[0] += dx * (mouse_sensitivity * 0.01f);
+        int dy = y - last_y;
+
+        if(shift_pulsado)
+        {
+            // TRASLACIÓN con SHIFT
+            float factor = 0.1f;
+
+            if(ctrl_pulsado)
+            {
+                // SHIFT + CTRL: Traslación en Z
+                escena.view_position[2] += dy * factor;
+            }
+            else
+            {
+                // SHIFT solo: Traslación en XY
+                escena.view_position[0] += dx * factor;
+                escena.view_position[1] += -dy * factor;
+            }
+        }
+        else
+        {
+            // ROTACIÓN sin SHIFT
+            if(ctrl_pulsado)
+            {
+                // CTRL solo: Rotación en eje Z
+                float angulo_z = dx * mouse_sensitivity * 0.5f;
+
+                glm::mat4 rotacion = glm::make_mat4(escena.view_rotate);
+                rotacion = glm::rotate(rotacion, glm::radians(angulo_z), glm::vec3(0, 0, 1));
+                memcpy(escena.view_rotate, glm::value_ptr(rotacion), 16 * sizeof(float));
+            }
+            else
+            {
+                // Sin teclas: Rotación en ejes X e Y
+                float angulo_x = dy * mouse_sensitivity * 0.5f;
+                float angulo_y = dx * mouse_sensitivity * 0.5f;
+
+                glm::mat4 rotacion = glm::make_mat4(escena.view_rotate);
+                rotacion = glm::rotate(rotacion, glm::radians(angulo_y), glm::vec3(0, 1, 0));
+                rotacion = glm::rotate(rotacion, glm::radians(angulo_x), glm::vec3(1, 0, 0));
+                memcpy(escena.view_rotate, glm::value_ptr(rotacion), 16 * sizeof(float));
+            }
+        }
+
         last_x = x;
+        last_y = y;
+        glutPostRedisplay();
+    }else if(right_dragging && escena.camara == 0)
+    {
+        int dx = x - last_x;
+        int dy = y - last_y;
+
+        if(ctrl_pulsado)
+        {
+            // CTRL: Escalado con movimiento horizontal (más rápido)
+            escena.scale += dx * 1.0f;
+        }
+        else
+        {
+            // Sin CTRL: Escalado con movimiento vertical (normal)
+            escena.scale -= dy * 0.5f;  // Negativo para que subir = acercar
+        }
+        
+        // Limitar el escalado mínimo
+        if(escena.scale < 1.0f)
+            escena.scale = 1.0f;
+        if(escena.scale > 500.0f)
+            escena.scale = 500.0f;
+
+        last_x = x;
+        last_y = y;
         glutPostRedisplay();
     }
     gui.Motion(x, y);

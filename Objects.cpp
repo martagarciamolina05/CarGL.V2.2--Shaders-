@@ -358,8 +358,8 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 // Env�a nuestra ModelView al Vertex Shader
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
-                // Pintar el campo con textura (verde oscuro para complementar la textura)
-                glUniform4f(escena.uColorLocation, 0.2f, 0.5f, 0.2f, 1.0f);
+                // Pintar el campo con textura (usar blanco para que se vea el color real)
+                glUniform4f(escena.uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
                 //
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0+3);
@@ -686,12 +686,14 @@ TEscena::TEscena() {
     wireframe = 0;
     z_buffer = 1;
     culling = 0;
+    winding_order = 0;  // CCW por defecto
     proyeccion = 0;
 
     scale = 100.0;
     xy_aspect = 1;
     last_x = 0;
     last_y = 0;
+    ambient_intensity = 0.15f;  // 15% por defecto
 
     memcpy(view_position, view_position_c, 3*sizeof(float));
     memcpy(view_rotate, view_rotate_c, 16*sizeof(float));
@@ -786,6 +788,7 @@ void __fastcall TEscena::InitGL()
 
     // Obtener la ubicación del uniform de textura
     uTextureLocation = shaderProgram->uniform(U_TEXTURE);
+    uAmbientLocation = shaderProgram->uniform("u_Ambient");
 
     /*
     std::cout << "a_Position Location: " << aPositionLocation << std::endl;
@@ -883,17 +886,39 @@ void __fastcall TEscena::Render()
         glDisable(GL_DEPTH_TEST);
     }
 
+    if (culling)
+    {
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_BACK);  // Elimina las caras traseras
+        
+        // Configurar el sentido de las caras
+        if (winding_order == 0)
+            glFrontFace(GL_CCW);  // Antihorario (estándar)
+        else
+            glFrontFace(GL_CW);   // Horario
+    }
+    else
+    {
+        glDisable(GL_CULL_FACE);
+    }
 
     if(escena.proyeccion){
         projectionMatrix = glm::ortho(-6 * xy_aspect, 8 * xy_aspect, -3.f, 6.f, -100.f, 100.f);
     }else {
         projectionMatrix = glm::perspective(45.0f, xy_aspect, 0.1f, 1000.0f);
     }
+
     glUniformMatrix4fv(uProjectionMatrixLocation, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 
-    if(wireframe)
+    // Modo de visualización: 0=sólido, 1=alámbrico, 2=puntos
+    if(wireframe == 1)
     {
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //alambrico
+    }
+    else if(wireframe == 2)
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT); //puntos
+        glPointSize(3.0f); // Tamaño de los puntos
     }
     else
     {
@@ -919,6 +944,7 @@ void __fastcall TEscena::Render()
     //glUniform1i(uLuz0Location, gui.light0_enabled);
 
     this->sendLights();
+    glUniform1f(uAmbientLocation, ambient_intensity);
     glUniformMatrix4fv(uVMatrixLocation, 1, GL_FALSE, glm::value_ptr(viewMatrix)); // Para la luz matrix view pero sin escalado!
 
     // Dibujar carretera y objetos
@@ -1291,6 +1317,36 @@ void __fastcall TGui::Init(int main_window) {
     glui->add_radiobutton_to_group(radioGroup2, "AEREA");
     glui->add_radiobutton_to_group(radioGroup2, "TERCERA PERSONA");
 
+    //anade una separacion
+    new GLUI_StaticText( glui, "" );
+
+    // A�ade un panel con texto con el valor de la selecci�n
+    GLUI_Panel *panel3= new GLUI_Panel(glui, "Proyeccion");
+    GLUI_RadioGroup *radioGroup3 = new GLUI_RadioGroup(panel3, &escena.proyeccion, PROYECCION_ID, controlCallback);
+
+    glui->add_radiobutton_to_group(radioGroup3, "PERSPECTIVA");
+    glui->add_radiobutton_to_group(radioGroup3, "PARALELA");
+
+    //anade una separacion
+    new GLUI_StaticText( glui, "" );
+
+    // Panel para el sentido de las caras
+    GLUI_Panel *panel4 = new GLUI_Panel(glui, "Sentido de caras");
+    GLUI_RadioGroup *radioGroup4 = new GLUI_RadioGroup(panel4, &escena.winding_order, WINDING_ID, controlCallback);
+
+    glui->add_radiobutton_to_group(radioGroup4, "ANTIHORARIO (CCW)");
+    glui->add_radiobutton_to_group(radioGroup4, "HORARIO (CW)");
+
+    // A�ade una separaci�n
+    new GLUI_StaticText( glui, "" );
+
+    // Panel para el modo de visualizaci�n
+    GLUI_Panel *panel_vis = new GLUI_Panel(glui, "Modo de visualizacion");
+    GLUI_RadioGroup *radioGroup_vis = new GLUI_RadioGroup(panel_vis, &escena.wireframe, MODO_VIS_ID, controlCallback);
+
+    glui->add_radiobutton_to_group(radioGroup_vis, "SOLIDO");
+    glui->add_radiobutton_to_group(radioGroup_vis, "ALAMBRICO");
+    glui->add_radiobutton_to_group(radioGroup_vis, "PUNTOS");
 
     // A�ade una separaci�n
     new GLUI_StaticText( glui, "" );
@@ -1299,8 +1355,6 @@ void __fastcall TGui::Init(int main_window) {
 
     /***** Control para las propiedades de escena *****/
 
-    new GLUI_Checkbox( obj_panel, "Modo Alambrico", &escena.wireframe, 1, controlCallback );
-    glui->add_column_to_panel(obj_panel, true);
     new GLUI_Checkbox( obj_panel, "Culling", &escena.culling, 1, controlCallback );
     new GLUI_Checkbox( obj_panel, "Z Buffer", &escena.z_buffer, 1, controlCallback );
 
@@ -1309,7 +1363,13 @@ void __fastcall TGui::Init(int main_window) {
     // A�ade una separaci�n
     new GLUI_StaticText( glui, "" );
 
-    GLUI_Rollout *roll_lights = new GLUI_Rollout(glui, "Luces", true );
+    GLUI_Rollout *roll_lights = new GLUI_Rollout(glui, "Luces", false );
+
+    // Control de luz ambiente
+    GLUI_Spinner *ambient_spinner = new GLUI_Spinner(roll_lights, "Luz Ambiente:", &escena.ambient_intensity);
+    ambient_spinner->set_float_limits(0.0f, 1.0f);
+    ambient_spinner->set_speed(0.01f);
+    new GLUI_StaticText(roll_lights, "");
 
     GLUI_Panel *light0 = new GLUI_Panel( roll_lights, "Luz 1" );
     GLUI_Panel *light1 = new GLUI_Panel( roll_lights, "Luz 2" );
@@ -1551,7 +1611,7 @@ void __fastcall TGui::Motion(int x, int y )
 
 void __fastcall TGui::Mouse(int button, int button_state, int x, int y )
 {
-    if(button == GLUT_LEFT_BUTTON && button_state == GLUT_DOWN)
+    if(button == GLUT_LEFT_BUTTON && button_state == GLUT_DOWN) //si se detecta click izquierdo y estado presionado
     {
         escena.Pick3D(x, y);
     }
