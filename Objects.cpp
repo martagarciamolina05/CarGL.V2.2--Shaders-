@@ -300,6 +300,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -308,6 +309,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices0);
 
                 // Pintar las l�neas
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[1]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1);
@@ -317,6 +319,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
 
 
                 // Pintar el césped
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[2]);
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo2);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo2+3);
@@ -339,6 +342,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -350,15 +354,16 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
         }
         case CAMPO_ID: {
             if (escena.show_road) {
-                // C�lculo de la ModelView
+                // Calculo de la ModelView
                 modelMatrix     = glm::mat4(1.0f); // matriz identidad
 
                 modelMatrix     = glm::translate(modelMatrix, glm::vec3(tx, ty, tz));
                 modelViewMatrix = escena.viewMatrix * modelMatrix;
-                // Env�a nuestra ModelView al Vertex Shader
+                // Envia nuestra ModelView al Vertex Shader
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
-                // Pintar el campo con textura (usar blanco para que se vea el color real)
+                // Pintar el campo con textura
+                glUniform1i(escena.uUseTextureLocation, 1); // Activar textura
                 glUniform4f(escena.uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
                 //
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -405,6 +410,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -428,6 +434,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -450,6 +457,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -474,6 +482,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 1);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -502,6 +511,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -526,6 +536,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -548,6 +559,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -570,6 +582,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
                 // Pintar la carretera
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -582,6 +595,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
 
         case COCHE_ID: {
             if (escena.show_car) {
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, (const GLfloat *) colores[0]);
                 // Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -618,6 +632,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
 
                 float rad_gc = glm::radians(gc);
 
+                glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, (const GLfloat *) colores[1]);
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1+3);
@@ -788,6 +803,7 @@ void __fastcall TEscena::InitGL()
 
     // Obtener la ubicación del uniform de textura
     uTextureLocation = shaderProgram->uniform(U_TEXTURE);
+    uUseTextureLocation = shaderProgram->uniform(U_USETEXTURE);
     uAmbientLocation = shaderProgram->uniform("u_Ambient");
 
     /*
