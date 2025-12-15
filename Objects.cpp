@@ -97,6 +97,28 @@ TPrimitiva::TPrimitiva(int DL, int t)
             //************************ Cargar modelos 3ds ***********************************
             // formato 8 floats por v�rtice (x, y, z, A, B, C, u, v)
             modelo0 = Load3DS("../../Modelos/sueloCampo.3ds", &num_vertices0);
+
+
+             //************************ Cargar textura JPEG **********************************
+            int width, height;
+            unsigned char *pixels = LoadJPEG("../../Modelos/texturas/cespedTextura.jpeg", &width, &height);
+
+            if (pixels != NULL) {
+                printf("Textura Campo cargada: %dx%d\n", width, height);
+                glGenTextures(1, &textureID);
+                glBindTexture(GL_TEXTURE_2D, textureID);
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+                // Configurar wrapping para que se repita correctamente
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+                glGenerateMipmap(GL_TEXTURE_2D);
+                free (pixels);
+            } else {
+                printf("ERROR: No se pudo cargar cesped.jpeg\n");
+            }
+
             modelo1 = Load3DS("../../Modelos/lineasCampo.3ds", &num_vertices1);
             modelo2 = Load3DS("../../Modelos/vallasCampo.3ds", &num_vertices2);
 
@@ -182,22 +204,20 @@ TPrimitiva::TPrimitiva(int DL, int t)
 
             //************************ Cargar modelos 3ds ***********************************
             // formato 8 floats por v�rtice (x, y, z, A, B, C, u, v)
-            modelo0 = Load3DS("../../Modelos/bancoTextura.3ds", &num_vertices0);
+            modelo0 = Load3DS("../../Modelos/bancoDef.3ds", &num_vertices0);
 
             //************************ Cargar textura JPEG **********************************
             int width, height;
             unsigned char *pixels = LoadJPEG("../../Modelos/texturas/textura_banco.jpeg", &width, &height);
 
             if (pixels != NULL) {
-                printf("Textura banco cargada: %dx%d\n", width, height);
+
                 glGenTextures(1, &textureID);
                 glBindTexture(GL_TEXTURE_2D, textureID);
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-                // Configurar wrapping para que se repita correctamente
-                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-                glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
                 glGenerateMipmap(GL_TEXTURE_2D);
                 free (pixels);
             } else {
@@ -338,25 +358,32 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 // Env�a nuestra ModelView al Vertex Shader
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
-                // Pintar la carretera
-                glUniform4fv(escena.uColorLocation, 1, colores[0]);
-                //                   Asociamos los v�rtices y sus normales
+                // Pintar el campo con textura (verde oscuro para complementar la textura)
+                glUniform4f(escena.uColorLocation, 0.2f, 0.5f, 0.2f, 1.0f);
+                //
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0+3);
 
+                // Asociar el buffer de coordenadas UV
+                glVertexAttribPointer(escena.aUVLocation, 2, GL_FLOAT, GL_FALSE, STRIDE, modelo0 + 6);
+                glEnableVertexAttribArray(escena.aUVLocation);
+
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices0);
 
-                // Pintar las l�neas
-                glUniform4fv(escena.uColorLocation, 1, colores[1]);
-                //                   Asociamos los v�rtices y sus normales
+                // Deshabilitar coordenadas UV para los siguientes modelos
+                glDisableVertexAttribArray(escena.aUVLocation);
+
+
+                glUniform4f(escena.uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
+                //
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1+3);
 
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices1);
 
 
-                // Pintar el césped
-                glUniform4fv(escena.uColorLocation, 1, colores[2]);
+                // Pintar las vallas en blanco
+                glUniform4f(escena.uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo2);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo2+3);
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices2);
@@ -921,20 +948,18 @@ void __fastcall TEscena::Pick3D(int mouse_x, int mouse_y)
 
     this->seleccion = index;
 
-    gui.sel = this->seleccion;
+    
+    // 0 = NINGUNO, 1 = COCHE 1, 2 = COCHE 2
+    if (this->seleccion == 1) {
+        gui.sel = 1; // COCHE 1
+    } else if (this->seleccion == 2) {
+        gui.sel = 2; // COCHE 2
+    } else {
+        gui.sel = 0; // NINGUNO
+    }
+    
     gui.glui->sync_live();
 
-    // Imprimir coordenadas de los dos coches (si existen)
-    if (num_cars > 0 && cars[0] != NULL) {
-        printf("Coche 1 - ID %d: tx=%f, ty=%f, tz=%f\n", cars[0]->ID, cars[0]->tx, cars[0]->ty, cars[0]->tz);
-    } else {
-        printf("Coche 1: no existe\n");
-    }
-    if (num_cars > 1 && cars[1] != NULL) {
-        printf("Coche 2 - ID %d: tx=%f, ty=%f, tz=%f\n", cars[1]->ID, cars[1]->tx, cars[1]->ty, cars[1]->tz);
-    } else {
-        printf("Coche 2: no existe\n");
-    }
 }
 
 // Crea todo el escenario
