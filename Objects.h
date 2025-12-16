@@ -69,6 +69,7 @@
 #define PROYECCION_ID        610
 #define WINDING_ID           620
 #define MODO_VIS_ID          630
+#define SOMBREADO_ID         640
 
 // Datos del formato 3DS (x, y, z, A, B, C, u, v)
 #define POSITION_COMPONENT_COUNT    3
@@ -103,6 +104,7 @@
 #define U_RETILING              "u_Retiling"
 #define U_SPECULARINTENSITY     "u_SpecularIntensity"
 #define U_SHININESS             "u_Shininess"
+#define U_SHADINGMODE           "u_ShadingMode"
 
 //************************************************************** Clase TPrimtiva
 
@@ -183,6 +185,7 @@ public: // Atributos de la clase
 		int uAmbientLocation;    // Uniform para luz ambiente
         int uSpecularLocation; // Uniform para luz especular
         int uShininessLocation; // Uniform para brillo especular
+        int uShadingModeLocation; // Uniform para modo de sombreado
     
 
 		glm::mat4 projectionMatrix; // Almacena la matriz de proyecci�n
@@ -220,6 +223,7 @@ public: // Atributos de la clase
         int     z_buffer;
         int     culling;
         int     winding_order;  // 0=CCW (antihorario), 1=CW (horario)
+        int     shader;         // 0=plano, 1=Gouraud (por vértice), 2=Phong (por fragmento)
 
         int     show_car;
         int     show_wheels;

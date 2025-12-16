@@ -12,6 +12,7 @@ uniform int  u_Luz1;                // in: Indica si la luz 1 está encedida
 uniform int  u_Luz2;                // in: Indica si la luz 2 está encedida
 uniform int  u_UseTexture;          // in: Indica si el objeto usa textura
 uniform float u_Retiling;           // in: Factor de repetición de la textura
+uniform int  u_ShadingMode;         // in: Modo de sombreado (0=Flat, 1=Gouraud, 2=Phong)
 
 varying vec4 v_Color;		        // out: Color al fragment shader
 varying vec2 v_UV;                  // out: Coordenadas UV al fragment shader

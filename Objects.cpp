@@ -722,6 +722,7 @@ TEscena::TEscena() {
     culling = 0;
     winding_order = 0;  // CCW por defecto
     proyeccion = 0;
+    shader = 2;  // Phong (por fragmento) por defecto
 
     scale = 100.0;
     xy_aspect = 1;
@@ -829,10 +830,12 @@ void __fastcall TEscena::InitGL()
     // Obtener las ubicaciones de los uniforms especulares
     uSpecularLocation = shaderProgram->uniform(U_SPECULARINTENSITY);
     uShininessLocation = shaderProgram->uniform(U_SHININESS);
+    uShadingModeLocation = shaderProgram->uniform(U_SHADINGMODE);
     
     // Establecer valores por defecto para el material especular
     glUniform1f(uSpecularLocation, 0.1f);  // Intensidad especular baja (era 0.5, demasiado alto)
     glUniform1f(uShininessLocation, 64.0f); // Shininess alto para brillo más concentrado
+    glUniform1i(uShadingModeLocation, 2);   // Phong por defecto
 
     /*
     std::cout << "a_Position Location: " << aPositionLocation << std::endl;
@@ -993,6 +996,9 @@ void __fastcall TEscena::Render()
     // Enviar los parámetros de brillo especular al shader
     glUniform1f(uSpecularLocation, gui.specular_intensity);
     glUniform1f(uShininessLocation, gui.shininess);
+    
+    // Enviar el modo de sombreado actual (0=Flat, 1=Gouraud, 2=Phong)
+    glUniform1i(uShadingModeLocation, shader);
     
     glUniformMatrix4fv(uVMatrixLocation, 1, GL_FALSE, glm::value_ptr(viewMatrix)); // Para la luz matrix view pero sin escalado!
 
@@ -1378,10 +1384,20 @@ void __fastcall TGui::Init(int main_window) {
     glui->add_radiobutton_to_group(radioGroup_vis, "ALAMBRICO");
     glui->add_radiobutton_to_group(radioGroup_vis, "PUNTOS");
 
+    new GLUI_StaticText( glui, "" );
+
+    obj_panel = new GLUI_Rollout(glui, "Sombreado", false );
+
+    /***** Control para el tipo de sombreado *****/
+    GLUI_RadioGroup *radioGroup_shader = new GLUI_RadioGroup(obj_panel, &escena.shader, SOMBREADO_ID, controlCallback);
+    glui->add_radiobutton_to_group(radioGroup_shader, "Plano (Flat)");
+    glui->add_radiobutton_to_group(radioGroup_shader, "Gouraud (Por vertice)");
+    glui->add_radiobutton_to_group(radioGroup_shader, "Phong (Por fragmento)");
+
     // A�ade una separaci�n
     new GLUI_StaticText( glui, "" );
 
-    obj_panel = new GLUI_Rollout(glui, "Propiedades", true );
+    obj_panel = new GLUI_Rollout(glui, "Propiedades", false );
 
     /***** Control para las propiedades de escena *****/
 
@@ -1606,6 +1622,13 @@ void __fastcall TGui::ControlCallback( int control )
         }
         case CAMARA_ID: {
             this->cambiarPosCamara();
+            break;
+        }
+        case SOMBREADO_ID: {
+            // El sombreado se maneja automáticamente con la variable escena.shader
+            // 0 = Flat (plano)
+            // 1 = Gouraud (por vértice) 
+            // 2 = Phong (por fragmento)
             break;
         }
   } // switch
