@@ -29,48 +29,14 @@ uniform int u_ShadingMode;          // Modo de sombreado (0=Flat, 1=Gouraud, 2=P
 
 void main()
 {
-	// Modo 0: FLAT - Sin interpolación, recalcular iluminación en fragment shader sin suavizado
+	// Modo 0: FLAT - Usar el color calculado en vértices sin especular (similar a Gouraud pero más simple)
+	// En OpenGL moderno usaríamos 'flat' varying, pero aquí simplificamos usando el color interpolado
 	if (u_ShadingMode == 0) {
-		// Usar derivadas para obtener una normal constante por triángulo (flat shading)
-		vec3 N_flat = normalize(cross(dFdx(v_Position), dFdy(v_Position)));
-		
-		// Recalcular iluminación difusa con normal plana (sin interpolación)
-		vec4 flatDiffuse = vec4(0.0);
-		
-		if (u_Luz0 > 0) {
-			vec4 LightPos0 = u_VMatrix * u_Light0Pos;
-			float d0 = length(LightPos0.xyz - v_Position);
-			vec3 L0 = normalize(LightPos0.xyz - v_Position);
-			float NdotL0 = max(dot(L0, N_flat), 0.0);
-			float attenuation0 = 80.0/(0.25+(0.01*d0)+(0.003*d0*d0));
-			flatDiffuse += u_DiffuseI0 * NdotL0 * attenuation0;
-		}
-		
-		if (u_Luz1 > 0) {
-			vec4 LightPos1 = u_VMatrix * u_Light1Pos;
-			float d1 = length(LightPos1.xyz - v_Position);
-			vec3 L1 = normalize(LightPos1.xyz - v_Position);
-			float NdotL1 = max(dot(L1, N_flat), 0.0);
-			float attenuation1 = 80.0/(0.25+(0.01*d1)+(0.003*d1*d1));
-			flatDiffuse += u_DiffuseI1 * NdotL1 * attenuation1;
-		}
-		
-		if (u_Luz2 > 0) {
-			vec4 LightPos2 = u_VMatrix * u_Light2Pos;
-			float d2 = length(LightPos2.xyz - v_Position);
-			vec3 L2 = normalize(LightPos2.xyz - v_Position);
-			float NdotL2 = max(dot(L2, N_flat), 0.0);
-			float attenuation2 = 80.0/(0.25+(0.01*d2)+(0.003*d2*d2));
-			flatDiffuse += u_DiffuseI2 * NdotL2 * attenuation2;
-		}
-		
-		vec4 flatColor = v_Color * 0.15 + v_Color * flatDiffuse; // Luz ambiente + difusa
-		
 		if (u_UseTexture != 0) {
 			vec4 texColor = texture2D(u_Texture, v_UV);
-			gl_FragColor = texColor * flatColor;
+			gl_FragColor = texColor * v_Color;
 		} else {
-			gl_FragColor = flatColor;
+			gl_FragColor = v_Color;
 		}
 		return;
 	}
