@@ -615,7 +615,15 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
         case COCHE_ID: {
             if (escena.show_car) {
                 glUniform1i(escena.uUseTextureLocation, 0);
-                glUniform4fv(escena.uColorLocation, 1, (const GLfloat *) colores[0]);
+                
+                // Material ROJO METÁLICO para el coche
+                // Diffuse: rojo oscuro metálico
+                glUniform4f(escena.uColorLocation, 0.6f, 0.1f, 0.1f, 1.0f);
+                // Specular: gris rojizo brillante (los metales tienen especular desaturado)
+                glUniform3f(escena.uSpecularColorLocation, 0.75f, 0.6f, 0.6f);
+                glUniform1f(escena.uSpecularLocation, 0.9f); // Intensidad alta para metal
+                glUniform1f(escena.uShininessLocation, 90.0f); // Shininess metálico
+                
                 // Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0+3);
@@ -632,10 +640,11 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
 
                 if(this->ID == seleccion){
                     glUniform4f(escena.uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
-                }else{
-
-                    glUniform4fv(escena.uColorLocation, 1,colores[0]); //si no esta sel, se pinta con su color original
+                    glUniform3f(escena.uSpecularColorLocation, 1.0f, 1.0f, 1.0f);
+                    glUniform1f(escena.uSpecularLocation, gui.specular_intensity);
+                    glUniform1f(escena.uShininessLocation, gui.shininess);
                 }
+                // Si no está seleccionado, mantener el material plata ya configurado
 
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices0);
             }
@@ -833,11 +842,13 @@ void __fastcall TEscena::InitGL()
     // Obtener las ubicaciones de los uniforms especulares
     uSpecularLocation = shaderProgram->uniform(U_SPECULARINTENSITY);
     uShininessLocation = shaderProgram->uniform(U_SHININESS);
+    uSpecularColorLocation = shaderProgram->uniform(U_SPECULARCOLOR);
     uShadingModeLocation = shaderProgram->uniform(U_SHADINGMODE);
     
     // Establecer valores por defecto para el material especular
     glUniform1f(uSpecularLocation, 0.1f);  // Intensidad especular baja (era 0.5, demasiado alto)
     glUniform1f(uShininessLocation, 64.0f); // Shininess alto para brillo más concentrado
+    glUniform3f(uSpecularColorLocation, 1.0f, 1.0f, 1.0f); // Blanco por defecto
     glUniform1i(uShadingModeLocation, 2);   // Phong por defecto
 
     /*
@@ -999,6 +1010,7 @@ void __fastcall TEscena::Render()
     // Enviar los parámetros de brillo especular al shader
     glUniform1f(uSpecularLocation, gui.specular_intensity);
     glUniform1f(uShininessLocation, gui.shininess);
+    glUniform3f(uSpecularColorLocation, 1.0f, 1.0f, 1.0f); // Blanco por defecto
     
     // Enviar el modo de sombreado actual (0=Flat, 1=Gouraud, 2=Phong)
     glUniform1i(uShadingModeLocation, shader);

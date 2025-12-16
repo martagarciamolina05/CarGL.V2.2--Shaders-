@@ -25,6 +25,7 @@ uniform mat4 u_VMatrix;             // Matriz View para transformar luces
 
 uniform float u_SpecularIntensity;  // Intensidad del brillo especular (ks)
 uniform float u_Shininess;          // Exponente de shininess (concentración del brillo)
+uniform vec3 u_SpecularColor;       // Color del brillo especular (para materiales metálicos)
 uniform int u_ShadingMode;          // Modo de sombreado (0=Flat, 1=Gouraud, 2=Phong)
 
 void main()
@@ -103,9 +104,8 @@ void main()
 		specularTerm += specular2 * attenuation2;
 	}
 	
-	// Aplicar el término especular (blanco puro) multiplicado por la intensidad
-	// El brillo especular es típicamente blanco, sin color de la luz
-	vec3 specularColor = vec3(1.0) * specularTerm * u_SpecularIntensity;
+	// Aplicar el término especular con color (blanco para plástico, gris para metales)
+	vec3 specularColor = u_SpecularColor * specularTerm * u_SpecularIntensity;
 	
 	// Limitar el brillo especular para evitar saturación
 	specularColor = clamp(specularColor, 0.0, 1.0);

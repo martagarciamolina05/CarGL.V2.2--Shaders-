@@ -104,6 +104,7 @@
 #define U_RETILING              "u_Retiling"
 #define U_SPECULARINTENSITY     "u_SpecularIntensity"
 #define U_SHININESS             "u_Shininess"
+#define U_SPECULARCOLOR         "u_SpecularColor"
 #define U_SHADINGMODE           "u_ShadingMode"
 
 //************************************************************** Clase TPrimtiva
@@ -185,6 +186,7 @@ public: // Atributos de la clase
 		int uAmbientLocation;    // Uniform para luz ambiente
         int uSpecularLocation; // Uniform para luz especular
         int uShininessLocation; // Uniform para brillo especular
+        int uSpecularColorLocation; // Uniform para color especular
         int uShadingModeLocation; // Uniform para modo de sombreado
     
 
