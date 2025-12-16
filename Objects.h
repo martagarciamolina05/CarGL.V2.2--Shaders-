@@ -233,6 +233,9 @@ public: // Atributos de la clase
         GLfloat view_position[3];
         GLfloat view_rotate[16];
         float   scale;
+        float  scaleX;
+        float  scaleY;
+        float  scaleZ;
         float   ambient_intensity;  // Intensidad de luz ambiente
 
 public: // M�todos

@@ -725,6 +725,9 @@ TEscena::TEscena() {
     shader = 2;  // Phong (por fragmento) por defecto
 
     scale = 100.0;
+    scaleX = 100.0;
+    scaleY = 100.0;
+    scaleZ = 100.0;
     xy_aspect = 1;
     last_x = 0;
     last_y = 0;
@@ -986,7 +989,7 @@ void __fastcall TEscena::Render()
     rotateMatrix    = glm::make_mat4(view_rotate);
     viewMatrix      = glm::translate(viewMatrix,glm::vec3(view_position[0], view_position[1], view_position[2]));
     viewMatrix      = viewMatrix*rotateMatrix;
-    viewMatrix      = glm::scale(viewMatrix,glm::vec3(scale/100.0, scale/100.0, scale/100.0));
+    viewMatrix      = glm::scale(viewMatrix,glm::vec3((scale*scaleX)/10000.0, (scale*scaleY)/10000.0, (scale*scaleZ)/10000.0));
 
     //glUniform1i(uLuz0Location, gui.light0_enabled);
 
@@ -1536,6 +1539,7 @@ void __fastcall TGui::Init(int main_window) {
     new GLUI_Column( glui2, false );
     GLUI_Translation *trans_z = new GLUI_Translation( glui2, "Traslacion Escena Z", GLUI_TRANSLATION_Z, &escena.scale );
     trans_z->set_speed( .005 );
+    
 
 }
 

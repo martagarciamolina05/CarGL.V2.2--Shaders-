@@ -33,7 +33,8 @@ static void SpecialKey(int key, int x, int y)
     float steerImmediateFactor = 8.0f; // divider: mayor -> efecto inmediato menor
 
     // Comprobar que el puntero car no sea NULL
-    if (car == NULL) {
+    if (car == NULL)
+    {
         printf("ERROR: No hay coche seleccionado (car == NULL)\n");
         return;
     }
@@ -95,9 +96,9 @@ static float mouse_sensitivity = 1.0f;
 
 void Mouse(int button, int button_state, int x, int y)
 {
-    if(button == GLUT_LEFT_BUTTON)
+    if (button == GLUT_LEFT_BUTTON)
     {
-        if(button_state == GLUT_DOWN)
+        if (button_state == GLUT_DOWN)
         {
             int modifiers = glutGetModifiers();
             ctrl_pulsado = (modifiers & GLUT_ACTIVE_CTRL) != 0;
@@ -106,16 +107,16 @@ void Mouse(int button, int button_state, int x, int y)
             last_x = x;
             last_y = y;
         }
-        else if(button_state == GLUT_UP)
+        else if (button_state == GLUT_UP)
         {
             left_dragging = false;
             ctrl_pulsado = false;
             shift_pulsado = false;
         }
     }
-    else if(button == GLUT_RIGHT_BUTTON)
+    else if (button == GLUT_RIGHT_BUTTON)
     {
-        if(button_state == GLUT_DOWN)
+        if (button_state == GLUT_DOWN)
         {
             int modifiers = glutGetModifiers();
             ctrl_pulsado = (modifiers & GLUT_ACTIVE_CTRL) != 0;
@@ -123,7 +124,7 @@ void Mouse(int button, int button_state, int x, int y)
             last_x = x;
             last_y = y;
         }
-        else if(button_state == GLUT_UP)
+        else if (button_state == GLUT_UP)
         {
             right_dragging = false;
             ctrl_pulsado = false;
@@ -150,17 +151,17 @@ void Reshape(int x, int y)
 
 void Motion(int x, int y)
 {
-    if(left_dragging && escena.camara == 0) // Modo cámara libre
+    if (left_dragging && escena.camara == 0) // Modo cámara libre
     {
         int dx = x - last_x;
         int dy = y - last_y;
 
-        if(shift_pulsado)
+        if (shift_pulsado)
         {
             // TRASLACIÓN con SHIFT
             float factor = 0.1f;
 
-            if(ctrl_pulsado)
+            if (ctrl_pulsado)
             {
                 // SHIFT + CTRL: Traslación en Z
                 escena.view_position[2] += dy * factor;
@@ -175,7 +176,7 @@ void Motion(int x, int y)
         else
         {
             // ROTACIÓN sin SHIFT
-            if(ctrl_pulsado)
+            if (ctrl_pulsado)
             {
                 // CTRL solo: Rotación en eje Z
                 float angulo_z = dx * mouse_sensitivity * 0.5f;
@@ -200,28 +201,23 @@ void Motion(int x, int y)
         last_x = x;
         last_y = y;
         glutPostRedisplay();
-    }else if(right_dragging && escena.camara == 0)
+    }
+    else if (right_dragging && escena.camara == 0)
     {
         int dx = x - last_x;
         int dy = y - last_y;
 
-        if(ctrl_pulsado)
+        if (ctrl_pulsado)
         {
-            // CTRL: Escalado con movimiento horizontal (más rápido)
-            escena.scale += dx * 1.0f;
+            // CTRL: Escalado en Z
+            escena.scale += dx * 0.5f;
         }
         else
         {
-            // Sin CTRL: Escalado con movimiento vertical (normal)
-            escena.scale -= dy * 0.5f;  // Negativo para que subir = acercar
+            // Sin CTRL: Escalado en X e Y
+            escena.scaleX += dx * 0.5f;
+            escena.scaleY -= dy * 0.5f;
         }
-        
-        // Limitar el escalado mínimo
-        if(escena.scale < 1.0f)
-            escena.scale = 1.0f;
-        if(escena.scale > 500.0f)
-            escena.scale = 500.0f;
-
         last_x = x;
         last_y = y;
         glutPostRedisplay();
