@@ -107,7 +107,8 @@ TPrimitiva::TPrimitiva(int DL, int t)
                 printf("Textura Campo cargada: %dx%d\n", width, height);
                 glGenTextures(1, &textureID);
                 glBindTexture(GL_TEXTURE_2D, textureID);
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+                glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 // Configurar wrapping para que se repita correctamente
@@ -214,7 +215,8 @@ TPrimitiva::TPrimitiva(int DL, int t)
 
                 glGenTextures(1, &textureID);
                 glBindTexture(GL_TEXTURE_2D, textureID);
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+                glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -364,6 +366,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
 
                 // Pintar el campo con textura
                 glUniform1i(escena.uUseTextureLocation, 1); // Activar textura
+                glUniform1f(escena.uRetilingLocation, 6.0f); // Repetir textura 6 veces
                 glUniform4f(escena.uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
                 //
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -483,6 +486,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
 
                 // Pintar la carretera
                 glUniform1i(escena.uUseTextureLocation, 1);
+                glUniform1f(escena.uRetilingLocation, 1.0f); // Sin repetición de textura
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -804,6 +808,7 @@ void __fastcall TEscena::InitGL()
     // Obtener la ubicación del uniform de textura
     uTextureLocation = shaderProgram->uniform(U_TEXTURE);
     uUseTextureLocation = shaderProgram->uniform(U_USETEXTURE);
+    uRetilingLocation = shaderProgram->uniform(U_RETILING);
     uAmbientLocation = shaderProgram->uniform("u_Ambient");
 
     /*
@@ -1151,34 +1156,6 @@ void __fastcall TEscena::CrearEscenario()
     edificio9->ty=-300;
 
 
-
-    banco->colores[0][0] = 0.7;
-    banco->colores[0][1] = 0.4;
-    banco->colores[0][2] = 0.1;
-
-    banco2->colores[0][0] = 0.7;
-    banco2->colores[0][1] = 0.4;
-    banco2->colores[0][2] = 0.1;
-
-    banco3->colores[0][0] = 0.7;
-    banco3->colores[0][1] = 0.4;
-    banco3->colores[0][2] = 0.1;
-
-    banco4->colores[0][0] = 0.7;
-    banco4->colores[0][1] = 0.4;
-    banco4->colores[0][2] = 0.1;
-
-    banco5->colores[0][0] = 0.7;
-    banco5->colores[0][1] = 0.4;
-    banco5->colores[0][2] = 0.1;
-
-
-
-    banco6->colores[0][0] = 0.7;
-    banco6->colores[0][1] = 0.4;
-    banco6->colores[0][2] = 0.1;
-
-
     banco-> tx = -10;
     banco2->ty=90;
     banco2->tx = - 10;
@@ -1190,8 +1167,6 @@ void __fastcall TEscena::CrearEscenario()
     banco4-> tx= 0;
     banco4-> ty= 200;
     banco4-> rz= 180;
-
-
 
     banco6->rz=90;
     banco6->tx = -100;
@@ -1387,9 +1362,9 @@ void __fastcall TGui::Init(int main_window) {
     ambient_spinner->set_speed(0.01f);
     new GLUI_StaticText(roll_lights, "");
 
-    GLUI_Panel *light0 = new GLUI_Panel( roll_lights, "Luz 1" );
-    GLUI_Panel *light1 = new GLUI_Panel( roll_lights, "Luz 2" );
-    GLUI_Panel *light2 = new GLUI_Panel( roll_lights, "Luz 3" );
+    GLUI_Rollout *light0 = new GLUI_Rollout( roll_lights, "Luz 1", false );
+    GLUI_Rollout *light1 = new GLUI_Rollout( roll_lights, "Luz 2", false );
+    GLUI_Rollout *light2 = new GLUI_Rollout( roll_lights, "Luz 3", false );
 
     new GLUI_Checkbox( light0, "Encendida", &light0_enabled, LIGHT0_ENABLED_ID, controlCallback );
     light0_spinner = new GLUI_Spinner( light0, "Intensidad:", &light0_intensity,

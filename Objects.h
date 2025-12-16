@@ -98,6 +98,7 @@
 
 #define U_TEXTURE               "u_Texture"
 #define U_USETEXTURE            "u_UseTexture"
+#define U_RETILING              "u_Retiling"
 
 //************************************************************** Clase TPrimtiva
 
@@ -174,6 +175,7 @@ public: // Atributos de la clase
 
 		int uTextureLocation;    // Uniform para la textura
 		int uUseTextureLocation; // Uniform para indicar si usa textura
+		int uRetilingLocation;   // Uniform para repetición de textura
 		int uAmbientLocation;    // Uniform para luz ambiente
 
 		glm::mat4 projectionMatrix; // Almacena la matriz de proyecci�n
