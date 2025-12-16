@@ -88,7 +88,7 @@ TPrimitiva::TPrimitiva(int DL, int t)
             break;
 		}
 		case CAMPO_ID: {  // Creaci�n de la carretera
-		    tx  = -25;
+		    tx  = 0;
 		    ty = 0;
 		    tz = 5;
 
@@ -182,7 +182,7 @@ TPrimitiva::TPrimitiva(int DL, int t)
             //************************ Cargar modelos 3ds ***********************************
             // formato 8 floats por v�rtice (x, y, z, A, B, C, u, v)
             modelo0 = Load3DS("../../Modelos/fuente.3ds", &num_vertices0);
-            modelo1 = NULL;
+            modelo1 = Load3DS("../../Modelos/aguaFuente.3ds", &num_vertices1);
             break;
 		}
 		case ARB_FUENTE_ID: {  // Creaci�n de la carretera
@@ -381,7 +381,8 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 // Deshabilitar coordenadas UV para los siguientes modelos
                 glDisableVertexAttribArray(escena.aUVLocation);
 
-
+                // Pintar las líneas del campo en blanco
+                glUniform1i(escena.uUseTextureLocation, 0); // Desactivar textura
                 glUniform4f(escena.uColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
                 //
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1);
@@ -562,7 +563,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 // Env�a nuestra ModelView al Vertex Shader
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
-                // Pintar la carretera
+                // Pintar la fuente
                 glUniform1i(escena.uUseTextureLocation, 0);
                 glUniform4fv(escena.uColorLocation, 1, colores[0]);
                 //                   Asociamos los v�rtices y sus normales
@@ -570,6 +571,14 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0+3);
 
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices0);
+
+                // Pintar el agua si existe
+                if (modelo1 != NULL && num_vertices1 > 0) {
+                    glUniform4f(escena.uColorLocation, 0.3f, 0.5f, 0.8f, 0.7f); 
+                    glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1);
+                    glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1+3);
+                    glDrawArrays(GL_TRIANGLES, 0, num_vertices1);
+                }
             }
             break;
         }
@@ -1095,7 +1104,6 @@ void __fastcall TEscena::CrearEscenario()
 
 
 
-
     edificio1->colores[0][0] = 1.0; // R
     edificio1->colores[0][1] = 1.0; // G
     edificio1->colores[0][2] = 0.0; // B
@@ -1133,9 +1141,9 @@ void __fastcall TEscena::CrearEscenario()
     valla1->colores[1][2] = 1.0;
     valla1->colores[1][3] = 1.0;
 
-    fuente->colores[0][0] = 0.1;
-    fuente->colores[0][1] = 0.4;
-    fuente->colores[0][2] = 0.9;
+    fuente->colores[0][0] = 0.75;
+    fuente->colores[0][1] = 0.75;
+    fuente->colores[0][2] = 0.75;
     fuente->colores[0][3] = 1.0;
     fuente->ty=-10;
 
