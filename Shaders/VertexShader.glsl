@@ -15,6 +15,8 @@ uniform float u_Retiling;           // in: Factor de repetición de la textura
 
 varying vec4 v_Color;		        // out: Color al fragment shader
 varying vec2 v_UV;                  // out: Coordenadas UV al fragment shader
+varying vec3 v_Position;            // out: Posición del vértice en view space
+varying vec3 v_Normal;              // out: Normal del vértice en view space
 
 uniform vec4 u_Light0Pos;
 uniform vec4 u_DiffuseI0;
@@ -73,6 +75,10 @@ void main()
 
 	v_Color = (u_Color * u_Ambient) + (u_Color * diffuseTerm);
 	v_Color.a = u_Color.a;
+	
+	// Pasar posición y normal al fragment shader para el cálculo especular
+	v_Position = P;
+	v_Normal = normalize(N);
 	
 	gl_Position = u_ProjectionMatrix * vec4(P, 1.0);
 

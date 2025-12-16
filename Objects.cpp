@@ -825,6 +825,14 @@ void __fastcall TEscena::InitGL()
     uUseTextureLocation = shaderProgram->uniform(U_USETEXTURE);
     uRetilingLocation = shaderProgram->uniform(U_RETILING);
     uAmbientLocation = shaderProgram->uniform("u_Ambient");
+    
+    // Obtener las ubicaciones de los uniforms especulares
+    uSpecularLocation = shaderProgram->uniform(U_SPECULARINTENSITY);
+    uShininessLocation = shaderProgram->uniform(U_SHININESS);
+    
+    // Establecer valores por defecto para el material especular
+    glUniform1f(uSpecularLocation, 0.1f);  // Intensidad especular baja (era 0.5, demasiado alto)
+    glUniform1f(uShininessLocation, 64.0f); // Shininess alto para brillo más concentrado
 
     /*
     std::cout << "a_Position Location: " << aPositionLocation << std::endl;
@@ -981,6 +989,11 @@ void __fastcall TEscena::Render()
 
     this->sendLights();
     glUniform1f(uAmbientLocation, ambient_intensity);
+    
+    // Enviar los parámetros de brillo especular al shader
+    glUniform1f(uSpecularLocation, gui.specular_intensity);
+    glUniform1f(uShininessLocation, gui.shininess);
+    
     glUniformMatrix4fv(uVMatrixLocation, 1, GL_FALSE, glm::value_ptr(viewMatrix)); // Para la luz matrix view pero sin escalado!
 
     // Dibujar carretera y objetos
@@ -1287,6 +1300,8 @@ TGui::TGui()
     light0_intensity = 0.8;
     light1_intensity = 0.8;
     light2_intensity = 0.8;
+    specular_intensity = 0.1;  // Intensidad especular inicial
+    shininess = 64.0;          // Shininess inicial
     memcpy(light0_position, light0_position_c, 4*sizeof(float));
     memcpy(light1_position, light1_position_c, 4*sizeof(float));
     memcpy(light2_position, light2_position_c, 4*sizeof(float));
@@ -1384,6 +1399,16 @@ void __fastcall TGui::Init(int main_window) {
     GLUI_Spinner *ambient_spinner = new GLUI_Spinner(roll_lights, "Luz Ambiente:", &escena.ambient_intensity);
     ambient_spinner->set_float_limits(0.0f, 1.0f);
     ambient_spinner->set_speed(0.01f);
+    new GLUI_StaticText(roll_lights, "");
+
+    // Controles para brillo especular
+    GLUI_Spinner *specular_spinner = new GLUI_Spinner(roll_lights, "Intensidad Especular:", &specular_intensity, SPECULAR_INTENSITY_ID, controlCallback);
+    specular_spinner->set_float_limits(0.0f, 2.0f);
+    specular_spinner->set_speed(0.01f);
+    
+    GLUI_Spinner *shininess_spinner = new GLUI_Spinner(roll_lights, "Brillo (Shininess):", &shininess, SHININESS_ID, controlCallback);
+    shininess_spinner->set_float_limits(1.0f, 128.0f);
+    shininess_spinner->set_speed(1.0f);
     new GLUI_StaticText(roll_lights, "");
 
     GLUI_Rollout *light0 = new GLUI_Rollout( roll_lights, "Luz 1", false );
@@ -1547,6 +1572,16 @@ void __fastcall TGui::ControlCallback( int control )
             escena.light2_diffuse[1] = light2_diffuse_c[1] * light2_intensity;
             escena.light2_diffuse[2] = light2_diffuse_c[2] * light2_intensity;
             escena.light2_diffuse[3] = light2_diffuse_c[3];
+            break;
+        }
+        case SPECULAR_INTENSITY_ID: {
+            // Actualizar la intensidad especular en el shader
+            glUniform1f(escena.uSpecularLocation, specular_intensity);
+            break;
+        }
+        case SHININESS_ID: {
+            // Actualizar el shininess en el shader
+            glUniform1f(escena.uShininessLocation, shininess);
             break;
         }
         case ENABLE_ID: {

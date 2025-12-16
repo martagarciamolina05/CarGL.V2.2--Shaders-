@@ -55,6 +55,8 @@
 #define LIGHT1_INTENSITY_ID  221
 #define LIGHT2_INTENSITY_ID  222
 
+#define SPECULAR_INTENSITY_ID 230
+#define SHININESS_ID          231
 
 #define ENABLE_ID            300
 #define DISABLE_ID           301
@@ -99,6 +101,8 @@
 #define U_TEXTURE               "u_Texture"
 #define U_USETEXTURE            "u_UseTexture"
 #define U_RETILING              "u_Retiling"
+#define U_SPECULARINTENSITY     "u_SpecularIntensity"
+#define U_SHININESS             "u_Shininess"
 
 //************************************************************** Clase TPrimtiva
 
@@ -177,7 +181,9 @@ public: // Atributos de la clase
 		int uUseTextureLocation; // Uniform para indicar si usa textura
 		int uRetilingLocation;   // Uniform para repetición de textura
 		int uAmbientLocation;    // Uniform para luz ambiente
-
+        int uSpecularLocation; // Uniform para luz especular
+        int uShininessLocation; // Uniform para brillo especular
+    
 
 		glm::mat4 projectionMatrix; // Almacena la matriz de proyecci�n
         glm::mat4 viewMatrix;
@@ -266,6 +272,8 @@ public:
         float           light0_position[4];
         float           light1_position[4];
         float           light2_position[4];
+        float           specular_intensity;
+        float           shininess;
 
         GLUI            *glui, *glui2;
         GLUI_Spinner    *light0_spinner;
