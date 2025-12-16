@@ -178,6 +178,7 @@ public: // Atributos de la clase
 		int uRetilingLocation;   // Uniform para repetición de textura
 		int uAmbientLocation;    // Uniform para luz ambiente
 
+
 		glm::mat4 projectionMatrix; // Almacena la matriz de proyecci�n
         glm::mat4 viewMatrix;
         glm::mat4 viewBaseMatrix = glm::mat4(1.0f);      // Almacena la matriz de la vista (c�mara)

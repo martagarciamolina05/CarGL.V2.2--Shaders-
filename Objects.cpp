@@ -109,19 +109,25 @@ TPrimitiva::TPrimitiva(int DL, int t)
                 glBindTexture(GL_TEXTURE_2D, textureID);
                 glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+                printf("glTexImage2D ejecutado OK\n");
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 // Configurar wrapping para que se repita correctamente
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
                 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+                printf("Generando mipmaps...\n");
                 glGenerateMipmap(GL_TEXTURE_2D);
+                printf("Mipmaps generados OK\n");
                 free (pixels);
             } else {
                 printf("ERROR: No se pudo cargar cesped.jpeg\n");
             }
 
+            printf("Cargando lineasCampo.3ds...\n");
             modelo1 = Load3DS("../../Modelos/lineasCampo.3ds", &num_vertices1);
+            printf("Cargando vallasCampo.3ds...\n");
             modelo2 = Load3DS("../../Modelos/vallasCampo.3ds", &num_vertices2);
+            printf("Modelos del campo cargados\n");
 
 
             break;
@@ -1021,11 +1027,13 @@ void __fastcall TEscena::Pick3D(int mouse_x, int mouse_y)
 // Crea todo el escenario
 void __fastcall TEscena::CrearEscenario()
 {
-
+    printf("Creando carretera...\n");
     TPrimitiva *road = new TPrimitiva(CARRETERA_ID, CARRETERA_ID);
+    printf("Creando coches...\n");
     TPrimitiva *car = new TPrimitiva(1, COCHE_ID);
     TPrimitiva *car2 = new TPrimitiva(2, COCHE_ID);
 
+    printf("Creando edificios...\n");
     TPrimitiva *edificio1 = new TPrimitiva(EDIFICIO1_ID, EDIFICIO1_ID);
     TPrimitiva *edificio2 = new TPrimitiva(EDIFICIO1_ID, EDIFICIO1_ID);
     TPrimitiva *edificio3 = new TPrimitiva(EDIFICIO2_ID, EDIFICIO2_ID);
@@ -1036,9 +1044,13 @@ void __fastcall TEscena::CrearEscenario()
     TPrimitiva *edificio8 = new TPrimitiva(EDIFICIO3_ID, EDIFICIO3_ID);
     TPrimitiva *edificio9 = new TPrimitiva(EDIFICIO3_ID, EDIFICIO3_ID);
 
+    printf("Creando valla...\n");
     TPrimitiva *valla1 = new TPrimitiva(VALLA_ID, VALLA_ID);
+    printf("Creando fuente...\n");
     TPrimitiva *fuente = new TPrimitiva(FUENTE_ID, FUENTE_ID);
+    printf("Creando arbusto...\n");
     TPrimitiva *arbusto = new TPrimitiva(ARB_FUENTE_ID, ARB_FUENTE_ID);
+    printf("Creando farolas...\n");
     TPrimitiva *farola = new TPrimitiva(FAROLA_ID, FAROLA_ID);
     TPrimitiva *farola2 = new TPrimitiva(FAROLA_ID, FAROLA_ID);
     TPrimitiva *farola3 = new TPrimitiva(FAROLA_ID, FAROLA_ID);
@@ -1050,6 +1062,7 @@ void __fastcall TEscena::CrearEscenario()
     TPrimitiva *farola8 = new TPrimitiva(FAROLA_ID, FAROLA_ID);
 
 
+    printf("Creando bancos...\n");
     TPrimitiva *banco = new TPrimitiva(BANCO_ID, BANCO_ID);
     TPrimitiva *banco2 = new TPrimitiva(BANCO_ID, BANCO_ID);
     TPrimitiva *banco3 = new TPrimitiva(BANCO_ID, BANCO_ID);
@@ -1057,12 +1070,15 @@ void __fastcall TEscena::CrearEscenario()
     TPrimitiva *banco5 = new TPrimitiva(BANCO_ID, BANCO_ID);
     TPrimitiva *banco6 = new TPrimitiva(BANCO_ID, BANCO_ID);
 
+    printf("Creando basuras...\n");
     TPrimitiva *basura = new TPrimitiva(BASURA_ID, BASURA_ID);
     TPrimitiva *basura2 = new TPrimitiva(BASURA_ID, BASURA_ID);
     TPrimitiva *basura3 = new TPrimitiva(BASURA_ID, BASURA_ID);
     TPrimitiva *basura4 = new TPrimitiva(BASURA_ID, BASURA_ID);
 
+    printf("Creando campo de futbol...\n");
     TPrimitiva *campoFutbol = new TPrimitiva(CAMPO_ID, CAMPO_ID);
+    printf("Campo de futbol creado OK\n");
 
 
     car->colores[0][0] = 0.1;

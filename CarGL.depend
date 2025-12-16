@@ -1780,11 +1780,11 @@
 1759314137 source:c:\users\equipo\downloads\cargl.v2.2 (shaders)\cargl.v2.2 (shaders)\shader.cpp
 	"Shader.h"
 
-1765803766 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\main.cpp
+1765912261 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\main.cpp
 	"Objects.h"
 	<GL\glui.h>
 
-1765908378 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\objects.h
+1765911556 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\objects.h
 	"Shader.h"
 	"Program.h"
 	<GL/glui.h>
@@ -1809,7 +1809,7 @@
 1759314137 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\shader.cpp
 	"Shader.h"
 
-1765908150 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\objects.cpp
+1765912261 source:c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\objects.cpp
 	"Objects.h"
 	<GL/glui.h>
 	"load3ds.c"
@@ -1821,7 +1821,7 @@
 	<stdio.h>
 	<malloc.h>
 
-1765364027 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\loadjpeg.h
+1765911644 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\loadjpeg.h
 
 1759314137 c:\users\equipo\onedrive - universidad alicante\escritorio\uni\tercero\gc\cargl.v2.2 (shaders)\loadjpeg.c
 	<stdio.h>
