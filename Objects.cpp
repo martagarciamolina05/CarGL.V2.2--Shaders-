@@ -310,11 +310,11 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 // Pintar la carretera (asfalto)
                 glUniform1i(escena.uUseTextureLocation, 0);
                 
-                // Material ASFALTO: gris oscuro completamente mate (sin brillo especular)
+                // Material ASFALTO (sin brillo especular)
                 glUniform4f(escena.uColorLocation, 0.15f, 0.15f, 0.15f, 1.0f); // Gris muy oscuro
-                glUniform3f(escena.uSpecularColorLocation, 0.05f, 0.05f, 0.05f); // Especular casi nulo
+                glUniform3f(escena.uSpecularColorLocation, 0.05f, 0.05f, 0.05f); 
                 glUniform1f(escena.uSpecularLocation, 0.0f); // Sin brillo especular
-                glUniform1f(escena.uShininessLocation, 1.0f); // Mínimo absoluto
+                glUniform1f(escena.uShininessLocation, 1.0f); 
                 
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
@@ -1768,22 +1768,22 @@ void TGui::cambiarPosCamara(){
 
             if(coche != NULL)
             {
-                float distancia = 100.0f;  // Distancia detrás del coche
-                float altura = 10.0f;     // Altura de la cámara
+                float distancia = 80.0f;  // Distancia detrás del coche
+                float altura = 30.0f;     
 
+                // Calcular ángulo del coche en radianes
                 float angulo = glm::radians(coche->gc);
+                
+                //la posicion de la camara se calcula en funcion de la posicion y angulo del coche (por detras)
                 float cam_x = coche->tx + distancia * sin(angulo);
                 float cam_y = coche->ty - distancia * cos(angulo);
 
-                glm::mat4 newView = glm::mat4(1.0f);
-                // Rotar según el heading del coche
-                newView = glm::rotate(newView, -angulo, glm::vec3(0, 0, 1));
-                // Rotar para mirar hacia abajo
-                newView = glm::rotate(newView, (float)glm::radians(-90.0), glm::vec3(1, 0, 0));
-                // Posicionar la cámara detrás del coche
-                newView = glm::translate(newView, glm::vec3(-cam_x, -cam_y, -altura));
-
-                escena.viewBaseMatrix = newView;
+                
+                glm::vec3 cam_pos = glm::vec3(cam_x, cam_y, altura);
+                glm::vec3 target = glm::vec3(coche->tx, coche->ty, 5.0f); // Mirar al coche
+                glm::vec3 up = glm::vec3(0.0f, 0.0f, 1.0f); // Arriba en Z
+                
+                escena.viewBaseMatrix = glm::lookAt(cam_pos, target, up);
             }
             break;
 

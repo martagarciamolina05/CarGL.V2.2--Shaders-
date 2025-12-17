@@ -30,8 +30,7 @@ uniform int u_ShadingMode;          // Modo de sombreado (0=Flat, 1=Gouraud, 2=P
 
 void main()
 {
-	// Modo 0: FLAT - Usar el color calculado en vértices sin especular (similar a Gouraud pero más simple)
-	// En OpenGL moderno usaríamos 'flat' varying, pero aquí simplificamos usando el color interpolado
+	// Modo 0: FLAT 
 	if (u_ShadingMode == 0) {
 		if (u_UseTexture != 0) {
 			vec4 texColor = texture2D(u_Texture, v_UV);
@@ -42,7 +41,7 @@ void main()
 		return;
 	}
 	
-	// Modo 1: GOURAUD - Usar el color ya calculado e interpolado desde el vertex shader
+	// Modo 1: GOURAUD
 	if (u_ShadingMode == 1) {
 		if (u_UseTexture != 0) {
 			vec4 texColor = texture2D(u_Texture, v_UV);
@@ -53,7 +52,7 @@ void main()
 		return;
 	}
 	
-	// Modo 2: PHONG - Calcular iluminación completa por píxel con especular
+	// Modo 2: PHONG - Usar el brillo especular 
 	vec4 finalColor;
 	if (u_UseTexture != 0) {
 		vec4 texColor = texture2D(u_Texture, v_UV);
