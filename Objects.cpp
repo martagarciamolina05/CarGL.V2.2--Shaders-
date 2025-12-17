@@ -616,13 +616,22 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
             if (escena.show_car) {
                 glUniform1i(escena.uUseTextureLocation, 0);
                 
-                // Material ROJO METÁLICO para el coche
-                // Diffuse: rojo oscuro metálico
-                glUniform4f(escena.uColorLocation, 0.6f, 0.1f, 0.1f, 1.0f);
-                // Specular: gris rojizo brillante (los metales tienen especular desaturado)
-                glUniform3f(escena.uSpecularColorLocation, 0.75f, 0.6f, 0.6f);
-                glUniform1f(escena.uSpecularLocation, 0.9f); // Intensidad alta para metal
-                glUniform1f(escena.uShininessLocation, 90.0f); // Shininess metálico
+                // Aplicar material según el ID del coche
+                if (this->ID == 1) {
+
+                    //COCHE 1 : ROJO (METAL)
+                    glUniform4f(escena.uColorLocation, 0.6f, 0.1f, 0.1f, 1.0f);
+                    glUniform3f(escena.uSpecularColorLocation, 0.75f, 0.6f, 0.6f);
+                    glUniform1f(escena.uSpecularLocation, 0.9f);
+                    glUniform1f(escena.uShininessLocation, 90.0f);
+                } else if (this->ID == 2) {
+                    
+                    // COCHE 2 : AZUL (METAL)
+                    glUniform4f(escena.uColorLocation, 0.1f, 0.2f, 0.7f, 1.0f);
+                    glUniform3f(escena.uSpecularColorLocation, 0.6f, 0.65f, 0.8f);
+                    glUniform1f(escena.uSpecularLocation, 0.9f);
+                    glUniform1f(escena.uShininessLocation, 90.0f);
+                }
                 
                 // Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
