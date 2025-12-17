@@ -307,14 +307,25 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                 // Env�a nuestra ModelView al Vertex Shader
                 glUniformMatrix4fv(escena.uMVMatrixLocation, 1, GL_FALSE, &modelViewMatrix[0][0]);
 
-                // Pintar la carretera
+                // Pintar la carretera (asfalto)
                 glUniform1i(escena.uUseTextureLocation, 0);
-                glUniform4fv(escena.uColorLocation, 1, colores[0]);
+                
+                // Material ASFALTO: gris oscuro completamente mate (sin brillo especular)
+                glUniform4f(escena.uColorLocation, 0.15f, 0.15f, 0.15f, 1.0f); // Gris muy oscuro
+                glUniform3f(escena.uSpecularColorLocation, 0.05f, 0.05f, 0.05f); // Especular casi nulo
+                glUniform1f(escena.uSpecularLocation, 0.0f); // Sin brillo especular
+                glUniform1f(escena.uShininessLocation, 1.0f); // Mínimo absoluto
+                
                 //                   Asociamos los v�rtices y sus normales
                 glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0);
                 glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo0+3);
 
                 glDrawArrays(GL_TRIANGLES, 0, num_vertices0);
+                
+                // Restaurar valores por defecto
+                glUniform3f(escena.uSpecularColorLocation, 1.0f, 1.0f, 1.0f);
+                glUniform1f(escena.uSpecularLocation, gui.specular_intensity);
+                glUniform1f(escena.uShininessLocation, gui.shininess);
 
                 // Pintar las l�neas
                 glUniform1i(escena.uUseTextureLocation, 0);
