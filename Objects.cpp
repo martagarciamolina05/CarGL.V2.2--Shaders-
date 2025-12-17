@@ -580,10 +580,20 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
 
                 // Pintar el agua si existe
                 if (modelo1 != NULL && num_vertices1 > 0) {
-                    glUniform4f(escena.uColorLocation, 0.3f, 0.5f, 0.8f, 0.7f); 
+                    // Material AGUA: azul translúcido con brillo especular alto
+                    glUniform4f(escena.uColorLocation, 0.2f, 0.4f, 0.7f, 0.7f); 
+                    glUniform3f(escena.uSpecularColorLocation, 1.0f, 1.0f, 1.0f);
+                    glUniform1f(escena.uSpecularLocation, 1.5f); // Muy brillante
+                    glUniform1f(escena.uShininessLocation, 128.0f);
+                    
                     glVertexAttribPointer(escena.aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1);
                     glVertexAttribPointer(escena.aNormalLocation, NORMAL_COMPONENT_COUNT, GL_FLOAT, false, STRIDE, modelo1+3);
                     glDrawArrays(GL_TRIANGLES, 0, num_vertices1);
+                    
+                    // Restaurar valores por defecto
+                    glUniform3f(escena.uSpecularColorLocation, 1.0f, 1.0f, 1.0f);
+                    glUniform1f(escena.uSpecularLocation, gui.specular_intensity);
+                    glUniform1f(escena.uShininessLocation, gui.shininess);
                 }
             }
             break;
@@ -625,7 +635,7 @@ void __fastcall TPrimitiva::Render(int seleccion, bool reflejo)
                     glUniform1f(escena.uSpecularLocation, 0.9f);
                     glUniform1f(escena.uShininessLocation, 90.0f);
                 } else if (this->ID == 2) {
-                    
+
                     // COCHE 2 : AZUL (METAL)
                     glUniform4f(escena.uColorLocation, 0.1f, 0.2f, 0.7f, 1.0f);
                     glUniform3f(escena.uSpecularColorLocation, 0.6f, 0.65f, 0.8f);
